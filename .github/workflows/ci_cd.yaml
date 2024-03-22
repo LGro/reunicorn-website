@@ -1,0 +1,22 @@
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.124.1'
+      - name: Hugo Build
+        run: hugo --minify
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_USER}}
+          password: ${{secrets.FTP_PASSWORD}}
+          port: 22
+          uploads: ./public => ./public_html/

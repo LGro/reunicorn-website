@@ -1,0 +1,10 @@
+top:
+- name: Developers
+  pageRef: /developers
+  weight: 10
+- name: Alternatives
+  pageRef: /alternatives
+  weight: 20
+- name: Donate
+  pageRef: /donate
+  weight: 30

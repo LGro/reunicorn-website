@@ -1,0 +1,10 @@
+top:
+- name: Entwickler*innen
+  pageRef: /entwicklerinnen
+  weight: 10
+- name: Alternativen
+  pageRef: /alternativen
+  weight: 20
+- name: Spenden
+  pageRef: /spenden
+  weight: 30

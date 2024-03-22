@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coagulate</title>
+    <link>http://localhost:1313/de/</link>
+    <description>Recent content on Coagulate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <atom:link href="http://localhost:1313/de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alternativen</title>
+      <link>http://localhost:1313/de/alternativen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/alternativen/</guid>
+      <description>Alternativen Wir wollen, dass alle die für sie am besten geeigneten Lösungen nutzen. Marktdominanz ist nicht unser Ziel. Deshalb sprechen wir ganz offen über Alternativen zu Coagulate und unter welchen Umständen sie sinnvoll sein können.&#xA;Social Media Social Media Plattformen wie Facebook erlauben Nutzer*innen sich zu vernetzen um in Kontakt zu bleiben. Mehr noch, sie sind auf Kommunikation und Informationsaustausch via Posts ausgerichtet. Dabei werden Daten, unter anderem über die Beziehungen von Menschen untereinander, zentral gespeichert und häufig zu Werbezwecken ausgewertet.</description>
+    </item>
+    <item>
+      <title>Entwickler*innen</title>
+      <link>http://localhost:1313/de/entwicklerinnen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/entwicklerinnen/</guid>
+      <description>Dein Beitrag zu Coagulate kann heute beginnen. Wirf einen Blick in das Coagulate Repository auf GitHub.com. Aufgaben, die sich für Einsteiger*innen eignen haben wir mit &amp;ldquo;good first issue&amp;rdquo; markiert, auch ein Blick auf &amp;ldquo;help wanted&amp;rdquo; lohnt sich.</description>
+    </item>
+    <item>
+      <title>Impressum</title>
+      <link>http://localhost:1313/de/impressum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/impressum/</guid>
+      <description>Rechtliches &amp;hellip;</description>
+    </item>
+    <item>
+      <title>Spenden</title>
+      <link>http://localhost:1313/de/spenden/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/de/spenden/</guid>
+      <description>Dein Beitrag zu Coagulate kann heute beginnen&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>
