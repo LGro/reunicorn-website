@@ -1,16 +1,15 @@
-<nav>
-    <ul>
-        {{ range .Site.Languages }}
-        {{ if eq . $.Site.Language }}
-        <li>{{ .LanguageName }}</span>
-            {{ end }}
-            {{ end }}
-            <ul class="dropdown__menu">
-                {{ range $.Translations }}
-                <li><a title="{{ .Language.LanguageName }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
-                </li>
-            </ul>
-            {{ end }}
-        </li>
-    </ul>
-</nav>
+<ul class="navbar-item has-dropdown is-hoverable mr-4">
+    {{ range .Site.Languages }}
+    {{ if eq . $.Site.Language }}
+    <li>{{ strings.ToUpper . }}</span>
+        {{ end }}
+        {{ end }}
+        <ul class="navbar-dropdown">
+            {{ range $.Translations }}
+            <a class="navbar-item" title="{{ .Language.LanguageName }}" href="{{ .Permalink }}">
+                <li>{{ strings.ToUpper .Language }}</li>
+            </a>
+        </ul>
+        {{ end }}
+    </li>
+</ul>

@@ -7,42 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$.Site.Title}}</title>
     <link rel="stylesheet" href="/css/bulma/bulma.min.css">
+    <script type="text/javascript" src="/js/main.js"></script>
 </head>
-
-
 
 <body class="index has-navbar-fixed-top">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="/{{$.Site.Language}}" class="navbar-item">
-                    <img src="/img/icon.png">
-                    <strong>Coagulate</strong>
-                </a>
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="coagulateNavbar">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div id="coagulateNavbar" class="navbar-menu">
-                <div class="navbar-end">
-                    {{- range site.Menus.top }}
-                    <a href="{{ .URL }}" class="navbar-item">
-                        {{ .Name }}
-                        {{- with .Page }}
-                        {{- with .Params.version -}}
-                        ({{ . }})
-                        {{- end }}
-                        {{- end }}
-                    </a>
+
+        <div class="navbar-brand">
+            <a href="/{{$.Site.Language}}" class="navbar-item">
+                <img src="/img/icon.png">
+                <strong>Coagulate</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="coagulateNavbar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="coagulateNavbar" class="navbar-menu">
+            <div class="navbar-end">
+                {{- range site.Menus.top }}
+                <a href="{{ .URL }}" class="navbar-item">
+                    {{ .Name }}
+                    {{- with .Page }}
+                    {{- with .Params.version -}}
+                    ({{ . }})
                     {{- end }}
-                    <div class="navbar-item">
-                        {{ if .Site.IsMultiLingual }}
-                        {{ partial "language-switcher.html" . }}
-                        {{ end }}
-                    </div>
+                    {{- end }}
+                </a>
+                {{- end }}
+                <div class="navbar-item">
+                    {{ if .Site.IsMultiLingual }}
+                    {{ partial "language-switcher.html" . }}
+                    {{ end }}
                 </div>
             </div>
         </div>
