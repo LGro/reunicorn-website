@@ -1,5 +1,7 @@
 # Coagulate.Social
 
+![No Broken Links](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml/badge.svg)
+
 The website accompanying the Coagulate smartphone app, built with [Hugo](https://gohugo.io).
 
 ## Building & Running
