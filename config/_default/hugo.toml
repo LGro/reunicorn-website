@@ -1,6 +1,7 @@
 baseURL = 'https://coagulate.social/'
 title = 'Coagulate'
 disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
 
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = true
