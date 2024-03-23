@@ -3,6 +3,8 @@ title: "Developers"
 translationKey: developers
 ---
 
+# For Developers {.title .is-2}
+
 Your contribution to Coagulate can start today.
 Have a look at the Coagulate [repository on GitHub.com](https://github.com/LGro/coagulate).
 Tasks that are especially suitable for new contributors are marked ["good first issue"](https://github.com/LGro/coagulate/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
