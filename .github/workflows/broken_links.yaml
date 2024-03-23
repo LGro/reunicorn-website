@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+  schedule:
+    # Once per day at 12:00 AM
+    - cron:  '0 0 * * *'
+
+jobs:
+  check-broken-links:
+    runs-on: ubuntu-22.04
+    container: ubuntu:latest
+    steps:
+      - name: Install wget
+        run: apt update && apt install -y -qq wget
+      - name: wget coagulate.social
+        run: wget --spider -r -nd -nv -H -l 1 -w 2 -o run.log https://coagulate.social/
+      - name: Check broken links
+        shell: bash
+        run: |
+          BROKEN=$(egrep -B1 'broken link!|ERROR' run.log)
+          echo $BROKEN
+          [[ ! -z "$BROKEN" ]] && { echo "Something is broken." ; exit 1; }
