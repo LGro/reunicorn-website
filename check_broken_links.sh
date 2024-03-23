@@ -1,5 +1,5 @@
 #!/bin/bash
-wget --spider -r -nd -nv -H -l 2 -w 1 -o /tmp/coagulate_broken_links.log $1
+wget --spider -r -nd -nv -H -l 1 -w 1 -o /tmp/coagulate_broken_links.log $1
 
 BROKEN=$(egrep -B1 'broken link!' /tmp/coagulate_broken_links.log)
 
