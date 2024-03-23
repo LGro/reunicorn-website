@@ -1,7 +1,7 @@
 # Coagulate.Social
 
-![CI/CD](https://github.com/LGro/coagulate.social/actions/workflows/ci_cd.yaml/badge.svg)
-![No Broken Links](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml/badge.svg)
+[![CI/CD](https://github.com/LGro/coagulate.social/actions/workflows/ci_cd.yaml/badge.svg)](https://github.com/LGro/coagulate.social/actions/workflows/ci_cd.yaml)
+[![No Broken Links](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml/badge.svg)](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml)
 
 The website accompanying the Coagulate smartphone app, built with [Hugo](https://gohugo.io).
 
