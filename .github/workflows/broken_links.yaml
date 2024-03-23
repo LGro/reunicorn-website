@@ -11,15 +11,19 @@ jobs:
   check-broken-links:
     runs-on: ubuntu-22.04
     container: ubuntu:latest
+    strategy:
+      matrix:
+        language: [en, de]
     steps:
       - name: Install wget
         run: apt update && apt install -y -qq wget
       - uses: actions/checkout@v3
-      - name: Check EN
+      - name: Check ${{ matrix.language }}
         if: always()
         shell: bash
-        run: ./check_broken_links.sh https://coagulate.social/en/
-      - name: Check DE
+        run: ./check_broken_links.sh https://coagulate.social/${{ matrix.language }}/
+      - uses: actions/upload-artifact@v4
         if: always()
-        shell: bash
-        run: ./check_broken_links.sh https://coagulate.social/de/
+        with:
+          name: report-${{ matrix.language }}
+          path: /tmp/coagulate_broken_links.log
