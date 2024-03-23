@@ -1,6 +1,6 @@
 top:
-- name: Entwickler*innen
-  pageRef: /entwicklerinnen
+- name: Mithelfen
+  pageRef: /mithelfen
   weight: 10
 - name: Alternativen
   pageRef: /alternativen

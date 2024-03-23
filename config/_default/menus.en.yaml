@@ -1,6 +1,6 @@
 top:
-- name: Developers
-  pageRef: /developers
+- name: Contribute
+  pageRef: /contribute
   weight: 10
 - name: Alternatives
   pageRef: /alternatives
