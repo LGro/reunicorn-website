@@ -14,11 +14,12 @@ jobs:
     steps:
       - name: Install wget
         run: apt update && apt install -y -qq wget
-      - name: wget coagulate.social
-        run: wget --spider -r -nd -nv -H -l 1 -w 2 -o run.log https://coagulate.social/
-      - name: Check broken links
+      - uses: actions/checkout@v3
+      - name: Check EN
+        if: always()
         shell: bash
-        run: |
-          BROKEN=$(egrep -B1 'broken link!|ERROR' run.log)
-          echo $BROKEN
-          [[ ! -z "$BROKEN" ]] && { echo "Something is broken." ; exit 1; }
+        run: ./check_broken_links.sh https://coagulate.social/en/
+      - name: Check DE
+        if: always()
+        shell: bash
+        run: ./check_broken_links.sh https://coagulate.social/de/
