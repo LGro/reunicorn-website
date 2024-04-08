@@ -90,29 +90,33 @@ async function run() {
 
     return;
 
-    if (cryptoVersion == 'VLD0') {
-      const cryptoKind = 1447838768;
-    }
+    // if (cryptoVersion == 'VLD0') {
+    const cryptoKind = 1447838768;
+    // }
     const body = getValueRes.data;
-    const nonceLength = (await veilid.crypto_random_nonce(cryptoKind)).length;
+    // TODO: Get from veilid library
+    const nonceLength = 24;
     const bodyBytes = body.slice(0, body.length - nonceLength);
     const saltBytes = body.slice(body.length - nonceLength);
 
-    let binaryString = '';
+    let binaryNonceString = '';
     saltBytes.forEach(byte => {
-      binaryString += String.fromCharCode(byte);
+      binaryNonceString += String.fromCharCode(byte);
     });
 
+    let binaryBodyString = '';
+    bodyBytes.forEach(byte => {
+      binaryBodyString += String.fromCharCode(byte);
+    });
     // Encode the binary string to Base64
-    const base64String = btoa(binaryString);
-    console.log("NONCe B64", base64String);
-
     // NONCE should be S10GrCOGnWEJutpNfSiATz2yw8GjaF3a
-    // Remove all trailing "="
-    let nonce = btoa(saltBytes).replace(/=+$/, '');
-    console.log("Nonce:", new TextDecoder().decode(saltBytes));
-    const bodyString = btoa(bodyBytes).replace(/=+$/, '');
-    const decrypted = veilid.crypto_decrypt_aead(cryptoKindVLD0, bodyString, nonce, psk);
+    const nonce = btoa(binaryNonceString);
+    console.log("Nonce:", nonce);
+    const bodyString = btoa(bodyBytes);//.replace(/=+$/, '');
+    console.log("Body:", bodyString);
+
+    const decrypted = await veilid.crypto_decrypt_aead(cryptoKind, bodyString, `"${nonce}"`, `"${psk}"`);
+    console.log(decrypted);
     const decoder = new TextDecoder('utf-8');
     const decodedMessage = decoder.decode(decrypted);
     console.log(decodedMessage);
