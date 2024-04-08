@@ -23,6 +23,10 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="/css/bulma/bulma.min.css">
+    {{ if and .IsPage "c" }}
+    <script defer type="module" src="/js/veilid_wasm.js"></script>
+    {{ end }}
+
     <script type="text/javascript" src="/js/main.js"></script>
 </head>
 
@@ -65,6 +69,10 @@
         {{ end }}
         {{ partial "footer.html" . }}
     </div>
+
+    {{ if and .IsPage "c" }}
+    <script defer type="module" src="/js/coagulate.js"></script>
+    {{ end }}
 </body>
 
 </html>
