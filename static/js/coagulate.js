@@ -1,5 +1,8 @@
 import veilid_load_wasm, * as veilid from './veilid_wasm.js';
 import {
+  veilidCrypto,
+} from './veilid_wasm.js';
+import {
   veilidCoreInitConfig,
   veilidCoreStartupConfig,
 } from './veilid_config.js';
@@ -12,6 +15,20 @@ export async function initVeilid() {
   window.veilid = veilid;
   console.log('veilid wasm loaded!');
 }
+
+function decryptBytes(
+  kind,
+  bytes,
+  sharedSecret
+) {
+  const nonce = new TextDecoder().decode(
+    bytes.subarray(0, veilidCrypto.NONCE_LENGTH_ENCODED)
+  );
+  const encryptedBytes = bytes.subarray(veilidCrypto.NONCE_LENGTH_ENCODED);
+
+  return veilidCrypto.decryptAead(kind, encryptedBytes, nonce, sharedSecret);
+}
+
 
 export async function startVeilid() {
   console.log('starting veilid core...');
@@ -88,38 +105,23 @@ async function run() {
       document.getElementById('coagulation-request-status').innerHTML = "An error happened, ask your contact for the invitation link again and install the Coagulate app."
     }
 
-    return;
-
-    // if (cryptoVersion == 'VLD0') {
-    const cryptoKind = 1447838768;
-    // }
     const body = getValueRes.data;
-    // TODO: Get from veilid library
-    const nonceLength = 24;
-    const bodyBytes = body.slice(0, body.length - nonceLength);
-    const saltBytes = body.slice(body.length - nonceLength);
+    const bodyBytes = body.slice(0, body.length - veilidCrypto.NONCE_LENGTH);
+    const saltBytes = body.slice(body.length - veilidCrypto.NONCE_LENGTH);
 
+    // Encode the binary string to Base64
     let binaryNonceString = '';
     saltBytes.forEach(byte => {
       binaryNonceString += String.fromCharCode(byte);
     });
-
-    let binaryBodyString = '';
-    bodyBytes.forEach(byte => {
-      binaryBodyString += String.fromCharCode(byte);
-    });
-    // Encode the binary string to Base64
-    // NONCE should be S10GrCOGnWEJutpNfSiATz2yw8GjaF3a
     const nonce = btoa(binaryNonceString);
-    console.log("Nonce:", nonce);
-    const bodyString = btoa(bodyBytes);//.replace(/=+$/, '');
-    console.log("Body:", bodyString);
 
-    const decrypted = await veilid.crypto_decrypt_aead(cryptoKind, bodyString, `"${nonce}"`, `"${psk}"`);
-    console.log(decrypted);
+    const bestKind = veilidCrypto.bestCryptoKind();
+    const decrypted = veilidCrypto.decryptAead(bestKind, bodyBytes, nonce, psk);
+
     const decoder = new TextDecoder('utf-8');
     const decodedMessage = decoder.decode(decrypted);
-    console.log(decodedMessage);
+    document.getElementById('coagulation-request-status').innerHTML = decodedMessage;
 
     console.log("Closing dht record");
     await routingContext.closeDhtRecord(key);
