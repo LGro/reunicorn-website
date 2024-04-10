@@ -121,7 +121,8 @@ async function run() {
 
     const decoder = new TextDecoder('utf-8');
     const decodedMessage = decoder.decode(decrypted);
-    document.getElementById('coagulation-request-status').innerHTML = decodedMessage;
+    const profile = JSON.parse(decodedMessage);
+    document.getElementById('coagulation-request-payload').innerHTML = JSON.stringify(profile, null, 4);
 
     console.log("Closing dht record");
     await routingContext.closeDhtRecord(key);
