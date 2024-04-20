@@ -98,12 +98,6 @@ async function run() {
     console.log("About to get dht value");
     let readonlyDhtRecord = await routingContext.openDhtRecord(key);
     const getValueRes = await routingContext.getDhtValue(key, 0, true);
-    // TODO: Localize by maybe just hiding and showing already existing content
-    if (getValueRes.data.length > 0) {
-      document.getElementById('coagulation-request-status').innerHTML = "Data available, install Coagulate now to automatically receive updates."
-    } else {
-      document.getElementById('coagulation-request-status').innerHTML = "An error happened, ask your contact for the invitation link again and install the Coagulate app."
-    }
 
     const body = getValueRes.data;
     const bodyBytes = body.slice(0, body.length - veilidCrypto.NONCE_LENGTH);
@@ -116,12 +110,21 @@ async function run() {
     });
     const nonce = btoa(binaryNonceString);
 
-    const bestKind = veilidCrypto.bestCryptoKind();
-    const decrypted = veilidCrypto.decryptAead(bestKind, bodyBytes, nonce, psk);
+    const decrypted = veilidCrypto.decryptAead(cryptoVersion, bodyBytes, nonce, psk);
 
     const decoder = new TextDecoder('utf-8');
     const decodedMessage = decoder.decode(decrypted);
     const profile = JSON.parse(decodedMessage);
+    console.log('FOUND PROFILE');
+    console.log(profile);
+
+    // TODO: Localize by maybe just hiding and showing already existing content
+    // TODO: Handle payload being empty; i.e. unshared or not sharing yet
+    if (getValueRes.data.length > 0) {
+      document.getElementById('coagulation-request-status').innerHTML = "Data available, install Coagulate now to automatically receive updates."
+    } else {
+      document.getElementById('coagulation-request-status').innerHTML = "An error happened, ask your contact for the invitation link again and install the Coagulate app."
+    }
     document.getElementById('coagulation-request-payload').innerHTML = JSON.stringify(profile, null, 4);
 
     console.log("Closing dht record");
