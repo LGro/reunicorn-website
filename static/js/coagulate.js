@@ -73,22 +73,23 @@ export async function stopVeilid() {
 }
 
 async function run() {
-  console.log("About to init veilid");
-  await initVeilid();
-  console.log("About to start veilid");
-  await startVeilid();
-
-  console.log("About to get help");
-  // console.log(await veilid.debug('help'))
-
   // Substring removes the # character
   const anchorContent = window.location.hash.substring(1);
   // NOTE: This would only work with a PSK, not with a pubkey
   // TODO: Handle if no PSK is present
   console.log(anchorContent);
-  const [cryptoVersion, key, psk] = anchorContent.split(':');
+  const components = anchorContent.split(':');
 
-  if (psk != undefined) {
+  if (components.length == 5) {
+    document.getElementById('coagulation-request-status').innerHTML = "Someone requested that you share your details with them, install Coagulate now to automatically receive updates."
+
+  } else if (components.length == 3) {
+    console.log("About to init veilid");
+    await initVeilid();
+    console.log("About to start veilid");
+    await startVeilid();
+
+    const [cryptoVersion, key, psk] = components;
 
     await new Promise(r => setTimeout(r, 8000));
 
@@ -134,9 +135,12 @@ async function run() {
 
     console.log("Freeing routing context");
     routingContext.free();
+
   } else {
-    console.log("Missing URL fragment");
+    // TODO: be more helpful with actionable advice
+    document.getElementById('coagulation-request-status').innerHTML = "The link does not seem right, check with the person that sent it to you."
   }
+
 
   console.log("Stopping veilid");
   await stopVeilid();
