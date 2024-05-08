@@ -7,7 +7,7 @@
             "namespace": "android_app",
             "package_name": "social.coagulate",
             "sha256_cert_fingerprints": [
-                "keytool -list -v -keystore <path-to-keystore>"
+                "DB:C7:D8:BF:88:6C:A6:72:21:44:86:5B:D0:B6:E0:1C:13:24:F8:09:5F:D6:B0:36:E5:21:C5:88:13:F0:42:EB"
             ]
         }
     }
