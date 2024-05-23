@@ -3,7 +3,7 @@
         "details": [
             {
                 "appIDs": [
-                    "social.coagulate"
+                    "G42ZSYUPFC.social.coagulate.app"
                 ],
                 "components": [
                     {
@@ -14,6 +14,10 @@
                     {
                         "/": "/c/*",
                         "comment": "Matches any URL with a path that starts with /c/."
+                    },
+                    {
+                        "/": "/en/c/*",
+                        "comment": "Matches any URL with a path that starts with /en/c/."
                     }
                 ]
             }
