@@ -1,0 +1,43 @@
+<style>
+    .image-gallery {
+        overflow: auto;
+        margin-left: -1% !important;
+    }
+
+    .image-gallery li {
+        float: left;
+        display: block;
+        margin: 0 0 1% 1%;
+        width: 19%;
+    }
+
+    .image-gallery li a {
+        text-align: center;
+        text-decoration: none !important;
+        color: #777;
+    }
+
+    .image-gallery li a span {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 3px 0;
+    }
+
+    .image-gallery li a img {
+        width: 100%;
+        display: block;
+    }
+</style>
+
+{{ $dir := string (.Get "gallery_dir") }}
+<ul class="image-gallery">
+    {{ range resources.Match (printf "%s/*.png" $dir) }}
+    <li>
+        <a href="{{ (.Fit " 1600x1600 q50").Permalink }}" title="" class="lightbox-image">
+            <img src="{{ (.Fit " 800x800 q50").Permalink }}" alt="" title="">
+        </a>
+    </li>
+    {{ end }}
+</ul>

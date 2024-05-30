@@ -24,3 +24,8 @@ defaultContentLanguageInSubdir = true
     weight = 2
     [languages.de.params]
       subtitle = 'Referenz, Tutorials und Erklärungen'
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
