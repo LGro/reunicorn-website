@@ -67,8 +67,9 @@
     <div class="container content mt-6 pl-5 pr-5">
         {{ block "main" . }}
         {{ end }}
-        {{ partial "footer.html" . }}
     </div>
+
+    {{ partial "footer.html" . }}
 
     {{ if and .IsPage "c" }}
     <script defer type="module" src="/js/coagulate.js"></script>
