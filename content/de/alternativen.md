@@ -9,6 +9,13 @@ Wir wollen, dass alle die für sie am besten geeigneten Lösungen nutzen.
 Marktdominanz ist nicht unser Ziel.
 Deshalb sprechen wir ganz offen über Alternativen zu Coagulate und unter welchen Umständen sie sinnvoll sein können.
 
+## Beer With Me {.title .is-3}
+
+Genau wie [Beer With Me](https://beerwithme.se/) fördert Coagulate Begegnungen.
+Mit Coagulate geht allerdings noch mehr als Alkoholkonsum im hier und jetzt.
+Zusätzlich können Zusammentreffen schon für die Zukunft geplant werden, und Nutzer*innen haben dabei immer aktuelle Kontaktdaten von den Menschen parat, die sie treffen möchten.
+Und obwohl die drei Schweden, die Beer With Me entwickeln, bestimmt nette Menschen sind, können Coagulate Nutzer*innen noch besser schlafen, weil es technisch unmöglich ist ihre Daten zu verkaufen.
+
 ## Social Media {.title .is-3}
 
 Social Media Plattformen wie Facebook erlauben Nutzer*innen sich zu vernetzen um in Kontakt zu bleiben.
