@@ -2,3 +2,11 @@ p,
 li {
     font-size: 1.2rem;
 }
+
+.image-gallery li+li {
+    margin-top: 0px;
+}
+
+.image-gallery li {
+    margin-top: 0.25em;
+}
