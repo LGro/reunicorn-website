@@ -11,7 +11,7 @@ That is why we talk openly about alternatives to Coagulate and under what circum
 ## Beer With Me {.title .is-3}
 
 We love the emphasis on meeting up in person that [Beer With Me](https://beerwithme.se/) has.
-Coagulate extends this emphasis for drinking together here and now, to alcohol unrelated gatherings right now as well as scheduled in the future.
+Coagulate extends this emphasis on drinking together here and now, to alcohol unrelated gatherings right now as well as scheduled in the future.
 Also, Coagulate makes it even easier to be sure that you can reach who ever you would like to meet with, providing up-to-date contact information.
 And while the three Swedes behind Beer With Me seem like nice folks, we hope that you can sleep even better knowing that Coagulate could not even sell information about your drinking, meeting or other social aspects even if we changed our minds.
 
@@ -40,7 +40,7 @@ To complement Coagulate's strong privacy when using CardDAV on the side, [EteSyn
 
 ## IPFS {.title .is-3}
 
-On the level of peer-to-peer frameworks, we use Veilid instead of libp2p or IPFS because Veilid provides IP privacy, which is very important to us.
+On the level of peer-to-peer frameworks, we use [Veilid](https://veilid.com/) instead of [libp2p](https://libp2p.io/) or [IPFS](https://ipfs.tech/) because Veilid provides IP privacy, which is very important to us.
 
 ## Others {.title .is-3}
 
