@@ -26,6 +26,14 @@
                     {
                         "/": "/en/p/*",
                         "comment": "Matches any URL with a path that starts with /en/p/."
+                    },
+                    {
+                        "/": "/o/*",
+                        "comment": "Matches any URL with a path that starts with /o/."
+                    },
+                    {
+                        "/": "/en/o/*",
+                        "comment": "Matches any URL with a path that starts with /en/o/."
                     }
                 ]
             }
