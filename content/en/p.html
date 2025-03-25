@@ -21,21 +21,25 @@
     });
 </script>
 
-<h2>Profile of <span data-placeholder-label></span></h2>
+<div class="mt-6">
+    <h2>Profile of <span data-placeholder-label></span></h2>
+    <p>
+        This is a Coagulate profile link.
+        With the Coagulate app, you can generate a sharing offer for <span data-placeholder-label></span> and share
+        contact details and locations with them to stay in contact.
+        If you have not installed Coagulate yet, see the instructions below.
+        Otherwise, open this link on your phone, paste this link or scan the QR code with the Coagulate app under
+        "Contacts > Accept invite" to create a sharing offer for them.
+    </p>
+    <p>
+        <a data-placeholder-url></a>
+    </p>
+    <div data-placeholder-qrcode></div>
+    <script type="text/javascript" src="/js/davidshimjs-qrcodejs-04f46c6/qrcode.min.js"></script>
+    <script type="text/javascript">
+        new QRCode(document.querySelector("[data-placeholder-qrcode]"), `${window.location}`);
+    </script>
 
-<p>
-    This is a Coagulate profile link.
-    With the Coagulate app, you can generate a sharing offer for <span data-placeholder-label></span> and share contact
-    details and locations with them to stay in contact.
-    If you have not installed Coagulate yet, see the instructions below.
-    Otherwise, open this link on your phone or paste this link under "Contacts > Accept invite" to accept their sharing
-    offer.
-</p>
-<p>
-    <a data-placeholder-url></a>
-</p>
-
-<div class="mt-6 has-text-centered">
     <h2 class="title is-4">Install Coagulate</h2>
     <p>
         Coming soon to your favorite app store...
