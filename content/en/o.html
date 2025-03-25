@@ -1,9 +1,33 @@
----
-aliases: ["/o"]
----
-<h2>Sharing offer</h2>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the fragment from the URL and remove the '#'
+        let fragment = window.location.hash.substring(1);
+        // Exit if no fragment is present
+        if (!fragment) return;
+
+        // Split fragment by '~'
+        let components = fragment.split("~");
+
+        // TODO: Validate / error detect
+        let name = components[0];
+
+        // Find all elements with data-placeholder attributes
+        document.querySelectorAll("[data-placeholder-label]").forEach((element, index) => {
+            element.innerHTML = name;
+        });
+
+        document.querySelector("[data-placeholder-url]").innerHTML = window.location;
+        document.querySelector("[data-placeholder-url]").href = window.location;
+    });
+</script>
+
+<h2>Offer from <span data-placeholder-label></span></h2>
 
 <p>
-    Someone has used your Coagulate profile link to generate a personalized sharing offer for you.
-    Open this link on your phone or paste this link under "Contacts > Accept invite" to accept their sharing offer.
+    <span data-placeholder-label></span> has used your Coagulate profile link to generate a personalized sharing offer
+    for you.
+    Open this link on your phone or paste it in Coagulate at "Contacts > Accept invite" to accept their sharing offer.
+</p>
+<p>
+    <a data-placeholder-url></a>
 </p>

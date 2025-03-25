@@ -4,12 +4,11 @@ disableKinds = ['taxonomy', 'term']
 enableRobotsTXT = true
 
 defaultContentLanguage = 'en'
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 [languages]
   [languages.en]
     contentDir = 'content/en'
     disabled = false
-    languageCode = 'en-US'
     languageDirection = 'ltr'
     languageName = 'English'
     weight = 1

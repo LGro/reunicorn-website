@@ -1,19 +1,18 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Get the fragment from the URL and remove the '#'
-        let fragment = window.location.hash.substring(1);
-        // Exit if no fragment is present
-        if (!fragment) return;
+        // Get the fragment from the URL
+        let fragment = window.location.hash.substring(1); // Remove the '#'
+        if (!fragment) return; // Exit if no fragment is present
 
         // Split fragment by '~'
         let components = fragment.split("~");
 
         // TODO: Validate / error detect
-        let name = components[0];
+        let label = components[0];
 
         // Find all elements with data-placeholder attributes
         document.querySelectorAll("[data-placeholder-label]").forEach((element, index) => {
-            element.innerHTML = name;
+            element.innerHTML = `from ${label}`;
         });
 
         document.querySelector("[data-placeholder-url]").innerHTML = window.location;
@@ -21,10 +20,11 @@
     });
 </script>
 
-<h2>Offer from <span data-placeholder-label></span></h2>
+<h2>Invite <span data-placeholder-label></span></h2>
 
 <p>
-    <span data-placeholder-label></span> is offering to share their contact details and locations with you.
+    You have been invited to connect with others <span data-placeholder-label></span> for sharing contact details and
+    locations.
     If you have not installed Coagulate yet, see the instructions below.
     Otherwise, open this link on your phone or paste this link under "Contacts > Accept invite" to accept their sharing
     offer.
