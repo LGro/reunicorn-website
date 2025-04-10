@@ -8,7 +8,7 @@
         let components = fragment.split("~");
 
         // TODO: Validate / error detect
-        let label = components[0];
+        let label = decodeURIComponent(components[0]);
 
         // Find all elements with data-placeholder attributes
         document.querySelectorAll("[data-placeholder-label]").forEach((element, index) => {
