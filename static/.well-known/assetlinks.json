@@ -7,7 +7,8 @@
             "namespace": "android_app",
             "package_name": "social.coagulate.app",
             "sha256_cert_fingerprints": [
-                "DB:C7:D8:BF:88:6C:A6:72:21:44:86:5B:D0:B6:E0:1C:13:24:F8:09:5F:D6:B0:36:E5:21:C5:88:13:F0:42:EB"
+                "DB:C7:D8:BF:88:6C:A6:72:21:44:86:5B:D0:B6:E0:1C:13:24:F8:09:5F:D6:B0:36:E5:21:C5:88:13:F0:42:EB",
+                "4F:32:F7:D8:68:FA:B9:C4:D4:82:D3:88:A2:5C:D8:E5:B2:90:B9:39:BE:41:E5:79:89:78:D7:D9:A5:11:F7:91"
             ]
         }
     }
