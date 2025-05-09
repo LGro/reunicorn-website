@@ -35,9 +35,9 @@
         <a data-placeholder-url></a>
     </p>
     <div data-placeholder-qrcode></div>
-    <script type="text/javascript" src="/js/davidshimjs-qrcodejs-04f46c6/qrcode.min.js"></script>
+    <script type="text/javascript" src="/js/kjua.min.js"></script>
     <script type="text/javascript">
-        new QRCode(document.querySelector("[data-placeholder-qrcode]"), `${window.location}`);
+        document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
     </script>
 
     <h2 class="title is-4">Install Coagulate</h2>
