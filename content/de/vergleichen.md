@@ -1,9 +1,9 @@
 ---
-title: "Alternativen"
-translationKey: alternatives
+title: "Vergleichen"
+translationKey: compare
 ---
 
-# Alternativen {.title .is-2}
+# Vergleichen {.title .is-2}
 
 Wir wollen, dass alle die für sie am besten geeigneten Lösungen nutzen.
 Marktdominanz ist nicht unser Ziel.
@@ -13,24 +13,24 @@ Deshalb sprechen wir ganz offen über Alternativen zu Coagulate und unter welche
 
 Genau wie [Beer With Me](https://beerwithme.se/) fördert Coagulate Begegnungen.
 Mit Coagulate geht allerdings noch mehr als Alkoholkonsum im hier und jetzt.
-Zusätzlich können Zusammentreffen schon für die Zukunft geplant werden, und Nutzer*innen haben dabei immer aktuelle Kontaktdaten von den Menschen parat, die sie treffen möchten.
-Und obwohl die drei Schweden, die Beer With Me entwickeln, bestimmt nette Menschen sind, können Coagulate Nutzer*innen noch besser schlafen, weil es technisch unmöglich ist ihre Daten zu verkaufen.
+Zusätzlich können Zusammentreffen schon für die Zukunft geplant werden, und Nutzer\*innen haben dabei immer aktuelle Kontaktdaten von den Menschen parat, die sie treffen möchten.
+Und obwohl die drei Schweden, die Beer With Me entwickeln, bestimmt nette Menschen sind, können Coagulate Nutzer\*innen noch besser schlafen, weil es technisch unmöglich ist ihre Daten zu verkaufen.
 
 ## Social Media {.title .is-3}
 
-Social Media Plattformen wie Facebook erlauben Nutzer*innen sich zu vernetzen um in Kontakt zu bleiben.
+Social Media Plattformen wie Facebook erlauben Nutzer\*innen sich zu vernetzen um in Kontakt zu bleiben.
 Mehr noch, sie sind auf Kommunikation und Informationsaustausch via Posts ausgerichtet.
 Dabei werden Daten, unter anderem über die Beziehungen von Menschen untereinander, zentral gespeichert und häufig zu Werbezwecken ausgewertet.
 Zudem sind die zentral gespeicherten Daten für Überwachung und Datendiebstahl anfällig.
 
 Coagulate ersetzt nicht bestehende Messenger, und fokussiert sich auf den Austausch von Kontaktdaten.
-Dabei werden Daten verschlüsselt gespeichert und übertragen, und sind nur für die Empfänger*in zugänglich.
+Dabei werden Daten verschlüsselt gespeichert und übertragen, und sind nur für die Empfänger\*in zugänglich.
 Einer Monetarisierung der Daten oder Überwachung wird so vorgebeugt.
 
 ## Find My & co {.title .is-3}
 
 Mit Apple's "Find My" App können Menschen ihren Standort für andere freigeben.
-Hier müssen sich Nutzer*innen auf Apples Versprechen verlassen, dass ihr Privatsphäre geschützt bleibt.
+Hier müssen sich Nutzer\*innen auf Apples Versprechen verlassen, dass ihr Privatsphäre geschützt bleibt.
 Und die Funktion ermöglicht nur Menschen mit Apple Geräten untereinander zu teilen.
 
 Dahingegen ist Coagulate sowohl für Android als auch iOS verfügbar und ermöglicht übergreifendes Teilen.

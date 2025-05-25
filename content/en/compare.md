@@ -1,9 +1,9 @@
 ---
-title: "Alternatives"
-translationKey: alternatives
+title: "Compare"
+translationKey: compare
 ---
 
-# Alternatives {.title .is-2}
+# Compare {.title .is-2}
 
 We want everyone to use the solutions that work best for them; Market dominance is not our goal.
 That is why we talk openly about alternatives to Coagulate and under what circumstances they can be useful.
