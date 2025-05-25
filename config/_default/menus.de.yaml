@@ -2,8 +2,8 @@ top:
 - name: Mithelfen
   pageRef: /mithelfen
   weight: 10
-- name: Alternativen
-  pageRef: /alternativen
+- name: Vergleichen
+  pageRef: /vergleichen
   weight: 20
 - name: Spenden
   pageRef: /spenden
