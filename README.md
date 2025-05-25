@@ -15,3 +15,7 @@ For running in production, ensure that you're running HTTPS so that the secret
 in the URL does not leak.
 
 Run `wasm_build.sh release` in the Veilid repository at `veilid/veilid-wasm` to update the files contained in `static/js/`.
+
+## Dependencies
+
+We're including a fixed version of the MIT licensed [kjua](https://github.com/lrsjng/kjua) for qrcode rendering.

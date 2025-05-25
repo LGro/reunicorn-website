@@ -12,7 +12,7 @@
 
         // Find all elements with data-placeholder attributes
         document.querySelectorAll("[data-placeholder-label]").forEach((element, index) => {
-            element.innerHTML = `from ${label}`;
+            element.innerHTML = label;
         });
 
         document.querySelector("[data-placeholder-url]").innerHTML = window.location;
@@ -21,13 +21,18 @@
 </script>
 
 <div class="mt-6">
-    <h2>Invite <span data-placeholder-label></span></h2>
+    <h2>Invite from <span data-placeholder-label></span></h2>
     <p>
-        You have been invited to connect with others <span data-placeholder-label></span> for sharing contact details
-        and locations.
-        If you have not installed Coagulate yet, see the instructions below.
-        Otherwise, open this link on your phone, paste it, or scan the QR code in the Coagulate app under "Contacts >
-        Accept invite" to connect with others from <span data-placeholder-label></span>.
+        Follow these steps to connect with others from <span data-placeholder-label></span>.
+    </p>
+    <h3>1. Install Coagulate</h3>
+    <p>
+        If you did not install the Coagulate app yet, follow the instructions you received alongside this invite link to
+        get the app.
+    </p>
+    <h3>2. Accept invite</h3>
+    <p>
+        Paste the invite link in the app under "Contacts > Accept invite" or scan the QR code below.
     </p>
     <p style="word-break: break-all;">
         <a data-placeholder-url></a>
@@ -37,24 +42,11 @@
     <script type="text/javascript">
         document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
     </script>
-
-    <h2 class="title is-4">Install Coagulate</h2>
+    <h3>3. Set up sharing</h3>
     <p>
-        Coming soon to your favorite app store...
-        <!-- <a target="_blank" href="https://apps.apple.com/de/app/coagulate/id000000">
-        <img style="height:3rem;" src="/img/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg">
-    </a>
-    <a target="_blank" href="https://play.google.com/store/apps/details?id=social.coagulate.app">
-        <img style="height:3rem;" src="/img/playstore_en_badge_web_generic.png">
-    </a> -->
-    </p>
-
-    <h2 class="title is-4 mt-6">Build from Source</h2>
-    <p>
-        <a href="https://github.com/LGro/coagulate" target="_blank">
-            <img src="/img/github-mark.svg" style="height:3rem;">
-            <br>
-            github.com/LGro/coagulate
-        </a>
+        After you have accepted the invitation in Coagulate, a circle named "<span data-placeholder-label></span>" will
+        appear in the app and automatically be populated with others who were invited along with you as they accept
+        their invites as well.
+        You can add contact details, locations, and configure which to share with this new circle.
     </p>
 </div>

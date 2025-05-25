@@ -58,7 +58,7 @@
                 </a>
                 {{- end }}
                 <div class="navbar-item">
-                    {{ if .Site.IsMultiLingual }}
+                    {{ if hugo.IsMultilingual }}
                     {{ partial "language-switcher.html" . }}
                     {{ end }}
                 </div>
