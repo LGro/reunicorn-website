@@ -1,5 +1,5 @@
-p,
-li {
+.content p,
+.content li {
     font-size: 1.2rem;
 }
 
