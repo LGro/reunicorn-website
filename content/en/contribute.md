@@ -13,7 +13,7 @@ And you do not need to be a programmer for that.
 
 While using Coagulate, you noticed something that you would like to share?
 Do you have suggestions for improvement, or did you find an unintuitive aspect?
-Please write us about your impression and what you would wish to change at feedback@coagulate.social, or create an [issue](https://github.com/LGro/coagulate/issues/new) in case you are familiar with GitHub.
+Please write us about your impression and what you would wish to change at feedback|at|coagulate.social, or create an [issue](https://github.com/LGro/coagulate/issues/new) in case you are familiar with GitHub.
 
 
 ## Translation {.title .is-3}

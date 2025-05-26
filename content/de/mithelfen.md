@@ -13,7 +13,7 @@ Du musst dafür kein\*e Programmierer\*in sein.
 
 Dir ist bei der Nutzung von Coagulate etwas aufgefallen, das du teilen möchtest?
 Hast du Verbesserungsvorschläge, oder fandest gewisse Aspekte unintuitiv?
-Dann beschreib kurz deinen Eindruck und welche Veränderung du dir wünschst an feedback@coagulate.social, oder, wenn du mit GitHub vertraut bist, erstell eine [Issue](https://github.com/LGro/coagulate/issues/new).
+Dann beschreib kurz deinen Eindruck und welche Veränderung du dir wünschst an feedback|at|coagulate.social, oder, wenn du mit GitHub vertraut bist, erstell eine [Issue](https://github.com/LGro/coagulate/issues/new).
 
 
 ## Übersetzung {.title .is-3}
