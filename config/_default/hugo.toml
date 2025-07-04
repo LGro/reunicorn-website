@@ -13,16 +13,16 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     weight = 1
     [languages.en.params]
-      subtitle = 'Reference, Tutorials, and Explanations'
+      subtitle = 'Contact details & location sharing, securely.'
   [languages.de]
     contentDir = 'content/de'
-    disabled = false
+    disabled = true
     languageCode = 'de-DE'
     languageDirection = 'ltr'
     languageName = 'Deutsch'
     weight = 2
     [languages.de.params]
-      subtitle = 'Referenz, Tutorials und Erklärungen'
+      subtitle = 'Kontaktdaten & Aufenthaltsorte teilen, sicher.'
 
 [module]
   [[module.mounts]]

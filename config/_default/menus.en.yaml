@@ -1,10 +1,13 @@
 top:
+- name: Roadmap
+  pageRef: /roadmap
+  weight: 10
 - name: Contribute
   pageRef: /contribute
-  weight: 10
+  weight: 20
 - name: Compare
   pageRef: /compare
-  weight: 20
+  weight: 30
 - name: Donate
   pageRef: /donate
-  weight: 30
+  weight: 40
