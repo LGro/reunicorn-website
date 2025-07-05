@@ -15,27 +15,23 @@ In the following text, we consider the author of the payload following this sche
 This schema is written as a UTF-8 encoded JSON string to the first sub-key of a Veilid DHT record, encrypted either with a pre-arranged shared secret or if available and `ack_handshake_complete` a key derived from the recipient's public key and the author's private key.
 The remaining sub-keys optionally contain the encrypted binary representation of a profile picture.
 
-- `int schema_version = 2`
+- `int schema_version = 3`
 - `ContactDetails details`
     - Author contact details, i.e. the information shared with the recipient.
 - `Map<String, ContactAddressLocation> address_locations`
     - Author address locations with IDs as keys.
 - `Map<String, ContactTemporaryLocation> temporary_locations`
     - Author temporary locations with IDs as keys.
-- `String? personal_unique_id`
-    - Optionally, unique ID like a UUIDv4, identifying the author uniquely among all Coagulate users.
-- `List<String> known_personal_contact_ids`
-    - List of all unique Coagulate users IDs that the author wants to reveal as known contacts.
+- `List<String> connection_attestations`
+    - Evidence for connections between the author and their contacts. See [[cryptography#shared-contact-discovery]] for more details.
 - `List<ContactIntroduction> introductions`
     - List of introductions the author proposes for the recipient to other of their contacts.
 - `String? share_back_d_h_t_key`
     - Optionally, the (typed) record key in string representation of a Veilid DHT record the author initialized for the recipient to share back with the author.
 - `String? share_back_d_h_t_writer`
     - Optionally, the writer key-pair in string representation of a Veilid DHT record the author initialized for the recipient to share back with the author.
-- `String? share_back_pub_key`
-    - Optionally, the author's public key that the recipient can use to encrypt their shared information with asymmetrically.
-- `bool ack_handshake_complete`
-    - Whether the author considers the public key exchange completed and is ready to switch to asymmetric encryption.
+- `String next_identity_key`
+    - The most recent author's public key that the recipient should use to derive a key to encrypt their shared information and decrypt the next update they receive.
 
 ### ContactDetails
 
