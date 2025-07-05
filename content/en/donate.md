@@ -8,10 +8,10 @@ translationKey: donate
 We are grateful for donations that help us ensure the sustainable development of Coagulate and strengthen our independence.
 You can send money our way via [Paypal to the WTF Kooperative eG](https://www.paypal.com/donate/?hosted_button_id=VZKR8VTRDN35W) which manages the financial side of Coagulate.
 We are also working towards accepting more privacy friendly gifts via a GNU Taler integration later this year.
-Note, any money you contribute is regarded as a gift and not a tax deductible donation.
+Note, any money you contribute is regarded as a gift and does not constitute a tax deductible donation.
 
 If you want to deduct your support from your taxes, or if you just want to strengthen the framework Coagulate is built on, we can recommend donations to the Veilid foundation.
-Because without Veilid we would not be able to create Coagulate, so we are happy to share some appreciation with them: https://veilid.com/donate/
+Because without Veilid we would not be able to create Coagulate, so we are happy to share your appreciation with them: https://veilid.com/donate/
 
 
 # Costs {.title .is-2}
@@ -32,7 +32,7 @@ Therefore, we are aiming to fund basic maintenance work for on average four 40h 
 With all that considered, we currently estimate that **sustainable maintenance of Coagulate costs up to 20,000 EUR annually**.
 
 Showing users ads and thereby exposing them to tracking is not compatible with our commitment to protecting our users' privacy.
-Equally so is selling user data to third parties.
+Equally so, selling user data to third parties for profit will not happen.
 That means we need to rely on Coagulate users to financially support the continued maintenance of the app.
 
 To fund the development of additional features we apply for grants offered by government agencies, or rely on the time contributions of individual developers, designers, writers and other supporters.
