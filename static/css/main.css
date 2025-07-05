@@ -29,6 +29,10 @@
     margin-left: 10px;
 }
 
+#coagulateMain {
+    overflow-x: hidden;
+}
+
 .image-gallery li+li {
     margin-top: 0px;
 }
