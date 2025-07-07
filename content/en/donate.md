@@ -6,11 +6,9 @@ translationKey: donate
 # Donate {.title .is-2}
 
 We are grateful for donations that help us ensure the sustainable development of Coagulate and strengthen our independence.
-You can send money our way via [Paypal to the WTF Kooperative eG](https://www.paypal.com/donate/?hosted_button_id=VZKR8VTRDN35W) which manages the financial side of Coagulate.
-We are also working towards accepting more privacy friendly gifts via a GNU Taler integration later this year.
-Note, any money you contribute is regarded as a gift and does not constitute a tax deductible donation.
+We are working towards accepting privacy friendly monetary gifts via GNU Taler later this year.
 
-If you want to deduct your support from your taxes, or if you just want to strengthen the framework Coagulate is built on, we can recommend donations to the Veilid foundation.
+In the meantime, or if you just want to strengthen the framework Coagulate is built on, we can recommend donations to the Veilid foundation.
 Because without Veilid we would not be able to create Coagulate, so we are happy to share your appreciation with them: https://veilid.com/donate/
 
 
