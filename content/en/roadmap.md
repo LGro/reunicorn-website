@@ -70,6 +70,7 @@ These are our ideas to continuously improve Coagulate after our first public rel
 - Translation into more languages like Spanish, German, and French
 - Accessibility improvements like consistent UI scaling, high contrast mode, screen reader compatibility and use of platform accessibility APIs
 - Share tags with circles to indicate interests, topics, etc.
+- Batch introductions for folks wo already know each other
 
 ## Already Implemented {.title .is-3}
 
