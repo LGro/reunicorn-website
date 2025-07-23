@@ -3,6 +3,11 @@
     font-size: 1.2rem;
 }
 
+[id] {
+    scroll-margin-top: 4rem;
+}
+
+
 @media screen and (min-width: 1024px) {
     .navbar-brand {
         min-height: 4rem;
@@ -17,20 +22,25 @@
         margin-top: 140px;
     }
 
-    .hero-body img {
+    .hero-body img#hero-screenshots {
         margin: 0;
     }
 }
 
-.hero-body img {
+.hero-body img#hero-screenshots {
     max-width: 550px;
     transform: rotate(15deg);
     margin-top: 60px;
     margin-left: 10px;
 }
 
+a.navbar-item:hover {
+    color: #161618;
+}
+
 #coagulateMain {
     overflow-x: hidden;
+    overflow-y: clip;
 }
 
 .image-gallery li+li {

@@ -1,0 +1,27 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a href="/{{$.Site.Language}}" class="navbar-item">
+            <img src="/img/icon.png">
+            <strong>Coagulate</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNav">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="mainNav" class="navbar-menu">
+        <div class="navbar-end">
+            {{ range .Site.Menus.top }}
+            {{ partial "nav-item.html" . }}
+            {{ end }}
+            <div class="navbar-item">
+                {{- if hugo.IsMultilingual -}}
+                {{ partial "language-switcher.html" . }}
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+</nav>

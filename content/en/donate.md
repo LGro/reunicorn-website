@@ -27,7 +27,7 @@ Because even with a community deciding to develop and maintain software in their
 And while we love the open source and free software community spirit, just relying on the financial privilege of individuals to contribute their time is not sufficient for us when it comes to ensuring that compatibility and security critical updates reach the Coagulate users timely.
 Therefore, we are aiming to fund basic maintenance work for on average four 40h work weeks per year with a budget of around 16,000 EUR before social security and tax deductions, which effectively halve what could be paid to developers, amounting to an hourly wage of around roughly 50 EUR before income tax.
 
-With all that considered, we currently estimate that **sustainable maintenance of Coagulate costs up to 20,000 EUR annually**.
+With all that considered, we currently estimate that **sustainable maintenance of Coagulate costs ~20,000 EUR annually**.
 
 Showing users ads and thereby exposing them to tracking is not compatible with our commitment to protecting our users' privacy.
 Equally so, selling user data to third parties for profit will not happen.

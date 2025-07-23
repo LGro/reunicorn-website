@@ -13,7 +13,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     weight = 1
     [languages.en.params]
-      subtitle = 'Contact details & location sharing, securely.'
+      subtitle = 'Share where & how to reach you, securely and privately.'
   [languages.de]
     contentDir = 'content/de'
     disabled = true
@@ -22,7 +22,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'Deutsch'
     weight = 2
     [languages.de.params]
-      subtitle = 'Kontaktdaten & Aufenthaltsorte teilen, sicher.'
+      subtitle = 'Teile wo & wie du erreichbar bist, sicher und privat.'
 
 [module]
   [[module.mounts]]

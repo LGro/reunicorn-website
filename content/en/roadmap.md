@@ -71,26 +71,10 @@ These are our ideas to continuously improve Coagulate after our first public rel
 - Accessibility improvements like consistent UI scaling, high contrast mode, screen reader compatibility and use of platform accessibility APIs
 - Share tags with circles to indicate interests, topics, etc.
 - Batch introductions for folks wo already know each other
-
-## Already Implemented {.title .is-3}
-
-Here is a brief overview of most features that are part of Coagulate today:
-- Direct contact invites via QR code or invite link
-- Public profile link based contact invites
-- Batch invites to onboard existing communities already connected
-- Contact details sharing
-- Profile picture(s)
-- Permanent address location sharing
-- Temporary location sharing
-- Display locations on a map
-- Selectively share individual details or locations depending on circle membership
-- Propose contacts to each other
-- For direct invites, automated upgrade from initial symmetric keys to DH derived secrets
-- Automatic key rotation for improved forward secrecy
-- Privacy friendly shared contact discovery
+- Hosted map tiles and geocoding privacy proxy via Veilid
 
 ## Feedback {.title .is-3}
 
 We are excited to hear from you about opportunities and challenges you see with using Coagulate.
 
-You can reach out to feedback(at)coagulate.social or find us on Mastodon https://floss.social/@coagulate
+You can reach out to feedback|at|coagulate.social or find us on Mastodon https://floss.social/@coagulate

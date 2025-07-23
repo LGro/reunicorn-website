@@ -32,42 +32,10 @@
 </head>
 
 <body class="index has-navbar-fixed-top">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a href="/{{$.Site.Language}}" class="navbar-item">
-                <img src="/img/icon.png">
-                <strong>Coagulate</strong>
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="coagulateNavbar">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="coagulateNavbar" class="navbar-menu">
-            <div class="navbar-end">
-                {{- range site.Menus.top }}
-                <a href="{{ .URL }}" class="navbar-item">
-                    {{ .Name }}
-                    {{- with .Page }}
-                    {{- with .Params.version -}}
-                    ({{ . }})
-                    {{- end }}
-                    {{- end }}
-                </a>
-                {{- end }}
-                <div class="navbar-item">
-                    {{ if hugo.IsMultilingual }}
-                    {{ partial "language-switcher.html" . }}
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </nav>
+    {{ partial "nav.html" . }}
     <div class="container content mt-6 pl-5 pr-5" id="coagulateMain">
         {{ block "main" . }}
-        {{ end }}
+        {{- end -}}
     </div>
 
     {{ partial "footer.html" . }}

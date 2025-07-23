@@ -6,10 +6,10 @@ translationKey: cryptography
 # Cryptography {.title .is-2}
 
 Coagulate secures your private contact details and location sharing with the following cryptographic mechanisms.
-We aim to strongly protect you against potentially bad outside actors like governments, marketing companies, infrastructure operators, or other kinds of surveillance.
-We help detect but only partly protect against attacks where one or multiple of your contacts turning against you by providing misleading information, be it by themselves or colluding with other malicious contacts.
+We aim to strongly protect you against potentially malicious outside actors like governments, marketing companies, infrastructure operators, or other kinds of surveillance.
+We help detect but only partly protect against attacks where one or multiple of your contacts turn against you by providing misleading information, be it by themselves or colluding with other malicious contacts.
 
-## Sharing information {.title .is-3}
+## Sharing Information {.title .is-3}
 
 All shared information with any individual contact is always end-to-end encrypted.
 
@@ -20,12 +20,14 @@ The main end-to-end encryption scheme is public key cryptography based, where tw
 
 These key pairs are rotated as fast as possible, potentially from one update to the next, in the spirit of forward secrecy.
 Specifically, when ever the shared information changes, a new follow up public key is proposed, which can be used by the recipient with their current contact specific key pair's secret key to encrypt their next update, which when received will cause the proposal key pair to be rotated into the slot of the established key material.
-So in case an attacker captures a encrypted update and cracks the key, they are limited to decrypting only the updates for which this key was used, but not for the ones sent before or after the key was rotated.
+So in case an attacker captures an encrypted update and manages to crack the key, they are limited to decrypting only the updates for which this key was used, but not for the ones sent before or after the corresponding key material was rotated.
 
-## Shared contact discovery {.title .is-3}
+For details regarding the used cyphers and other cryptographic primitives, see [Veilid's current cryptography systems](https://veilid.com/how-it-works/cryptography/#current-cryptography-systems).
+
+## Shared Contact Discovery {.title .is-3}
 
 Users can figure out which connections they share with their contacts in a privacy preserving manner.
-The goals of this scheme are that no user finds out about connections to users that they are not connect with themselves, and that learning about connections of others does not create an opportunity to suggest non-existing connections to any of one's contacts.
+The goals of this scheme are that users only find out about connections to other users that they are connected with themselves, and that learning about connections of others does not create an opportunity to suggest non-existing connections to any of one's contacts.
 Rather than using consistent identity keys across multiple contacts and leaving it to the contacts to compare the identities they know among each other in a privacy preserving manner, we shift control from the receiving user to the sharing users, reducing the risk of accidental leakage of social graph information.
 
 The approach is based on each pair of users `A` and `B` deriving a secret `S_AB` based on their long lived identity key pairs.
@@ -35,12 +37,12 @@ If only `A` and not `B` would be connected with `C`, `C` would only receive `Att
 
 To opt out of revealing a specific connection to a contact, a user can never start or later stop sharing the respective connection attestation.
 
-### Malicious recipients
+### Malicious Recipients {.title .is-4}
 
 Including the identity key in the hash prevents the recipient from maliciously re-using that hash to suggest non-existing connections to others.
 In the above example, `C` can not abuse `Attest_AB_for_C` by e.g. sending it to another contact `D` because any valid connection attestation `D` receives is hashed with `ID_D` and not `ID_C`, and is thus impossible to match with `Attest_AB_for_C`.
 
-### Malicious 
+### Malicious Collusion {.title .is-4}
 
 A malicious `A` can hand `Attest_AB_for_C` to `F` who is connected with `C` but not with `B` and at the same time stop sharing `Attest_AB_for_C` with `C`.
 This will make it seem to `C` that `B` and `F` are connected even though they are not.

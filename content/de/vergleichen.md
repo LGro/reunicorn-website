@@ -50,4 +50,4 @@ Im Gegensatz zu IPFS sind die Distributed Hash Table Zugriffe privat, genauso wi
 ## Andere {.title .is-3}
 
 Dir fehlt noch eine Alternative, bei der dir nicht ganz klar ist warum oder in welchen Szenarien Coagulate die bessere Lösung ist?
-Dann schreib uns eine [E-Mail](mailto:alt@coagulate.social).
+Dann schreib uns eine E-Mail an alternatives|at|coagulate.social

@@ -1,7 +1,25 @@
 top:
+- name: Features
+  pageRef: /features
+  weight: 5
 - name: Roadmap
   pageRef: /roadmap
   weight: 10
+- name: Team
+  pageRef: /team
+  weight: 12
+- name: Technical
+  identifier: technical
+  pageRef: /technical
+  weight: 15
+- name: Cryptography
+  pageRef: /cryptography
+  parent: technical
+  weight: 16
+- name: Interoperability
+  pageRef: /interop
+  parent: technical
+  weight: 17
 - name: Contribute
   pageRef: /contribute
   weight: 20

@@ -1,0 +1,25 @@
+{{- $item := . -}}
+{{- if $item.HasChildren }}
+<div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link is-arrowless" href="{{ $item.URL }}">{{ $item.Name }}</a>
+
+    <div class="navbar-dropdown">
+        {{ range $item.Children }}
+        {{ if .HasChildren }}
+        <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link is-arrowless">{{ .Name }}</div>
+            <div class="navbar-dropdown">
+                {{ range .Children }}
+                <a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+            </div>
+        </div>
+        {{ else }}
+        <a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+        {{ end }}
+    </div>
+</div>
+{{ else }}
+<a class="navbar-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
+{{ end }}
