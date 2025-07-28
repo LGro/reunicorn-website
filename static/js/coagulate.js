@@ -81,7 +81,7 @@ async function run() {
   const components = anchorContent.split(':');
 
   if (components.length == 5) {
-    document.getElementById('coagulation-request-status').innerHTML = "Someone requested that you share your details with them, install Coagulate now to automatically receive updates."
+    document.getElementById('coagulation-request-status').innerHTML = "Someone requested that you share your details with them, install Reunicorn now to automatically receive updates."
 
   } else if (components.length == 3) {
     console.log("About to init veilid");
@@ -122,9 +122,9 @@ async function run() {
     // TODO: Localize by maybe just hiding and showing already existing content
     // TODO: Handle payload being empty; i.e. unshared or not sharing yet
     if (getValueRes.data.length > 0) {
-      document.getElementById('coagulation-request-status').innerHTML = "Someone made their contact details and/or location available especially for you, install Coagulate now to link these details to your address book and automatically receive future updates."
+      document.getElementById('coagulation-request-status').innerHTML = "Someone made their contact details and/or location available especially for you, install Reunicorn now to link these details to your address book and automatically receive future updates."
     } else {
-      document.getElementById('coagulation-request-status').innerHTML = "An error happened, ask your contact for the invitation link again and install the Coagulate app."
+      document.getElementById('coagulation-request-status').innerHTML = "An error happened, ask your contact for the invitation link again and install the Reunicorn app."
     }
     document.getElementById('coagulation-request-payload').innerHTML = JSON.stringify(profile, null, 4);
 

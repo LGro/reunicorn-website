@@ -1,5 +1,5 @@
-baseURL = 'https://coagulate.social/'
-title = 'Coagulate'
+baseURL = 'https://reunicorn.app/'
+title = 'Reunicorn'
 disableKinds = ['taxonomy', 'term']
 enableRobotsTXT = true
 

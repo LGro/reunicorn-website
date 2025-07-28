@@ -21,9 +21,9 @@ jobs:
       - name: Check ${{ matrix.language }}
         if: always()
         shell: bash
-        run: ./check_broken_links.sh https://coagulate.social/${{ matrix.language }}/
+        run: ./check_broken_links.sh https://reunicorn.app/${{ matrix.language }}/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: report-${{ matrix.language }}
-          path: /tmp/coagulate_broken_links.log
+          path: /tmp/reunicorn_broken_links.log

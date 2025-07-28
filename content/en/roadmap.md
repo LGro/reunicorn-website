@@ -7,7 +7,7 @@ translationKey: roadmap
 
 ## Release in August 2026 {.title .is-3}
 
-Matching the release schedule of the underlying Veilid framework, we aim for the first stable, public Coagulate release in the Apple App Store, Google Play Store, and on f-droid in August 2026.
+Matching the release schedule of the underlying Veilid framework, we aim for the first stable, public Reunicorn release in the Apple App Store, Google Play Store, and on f-droid in August 2026.
 
 ## Open Beta in early 2026 {.title .is-3}
 
@@ -53,7 +53,7 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 
 ### Interoperability {.title .is-4}
 - Investigate and document approaches to build on existing networks of trust
-- Investigate and document how other applications can benefit from the network of trust users build in Coagulate
+- Investigate and document how other applications can benefit from the network of trust users build in Reunicorn
 - Target: Engage with the maintainers of Veilid and one other framework to draft a joint agenda for interoperability
 
 ### Developer Experience {.title .is-4}
@@ -63,7 +63,7 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 
 ## Improvements Beyond {.title .is-3}
 
-These are our ideas to continuously improve Coagulate after our first public release:
+These are our ideas to continuously improve Reunicorn after our first public release:
 - Downloadable maps for extended offline map support, improved privacy, and reduced operational cost
 - Appreciation for financial contributions, e.g. Signal like profile picture badge
 - Fine grained notification settings, allowing users to configure per circle, contact, or location which things they want to be notified about
@@ -75,6 +75,6 @@ These are our ideas to continuously improve Coagulate after our first public rel
 
 ## Feedback {.title .is-3}
 
-We are excited to hear from you about opportunities and challenges you see with using Coagulate.
+We are excited to hear from you about opportunities and challenges you see with using Reunicorn.
 
-You can reach out to feedback|at|coagulate.social or find us on Mastodon https://floss.social/@coagulate
+You can reach out to feedback|at|reunicorn.app or find us on Mastodon https://floss.social/@reunicorn

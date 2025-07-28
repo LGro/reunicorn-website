@@ -17,12 +17,12 @@ If you have an existing channel of trusted communication, an encrypted messenger
 
 ### Profile Link based Invites {.title .is-4}
 
-You can advertise to others who may or may not have Coagulate yet that you are on Coagulate by adding a public profile link to your social media profiles, e-mails signature, or where ever you like.
-With that profile link, others can create an invitation for you to share with them on Coagulate, which they need to send you via an established communication channel.
+You can advertise to others who may or may not have Reunicorn yet that you are on Reunicorn by adding a public profile link to your social media profiles, e-mails signature, or where ever you like.
+With that profile link, others can create an invitation for you to share with them on Reunicorn, which they need to send you via an established communication channel.
 
 ### Shared Contacts Discovery {.title .is-4}
 
-You can usually find out from what your contacts share with you, whether any two of your contacts are also connected via Coagulate.
+You can usually find out from what your contacts share with you, whether any two of your contacts are also connected via Reunicorn.
 For details on how this works in a privacy preserving way, see the corresponding section on our [cryptography](cryptography#shared-contact-discovery) page.
 
 ### Introducing Contacts {.title .is-4}
@@ -33,7 +33,7 @@ When you receive an introduction proposal, you can accept or decline the introdu
 
 ### Connected Community Invites {.title .is-4}
 
-Upon request, there is an option for existing communities to onboard their members to Coagulate already connected, omitting the necessity of individual connections via any of the above mentioned ways.
+Upon request, there is an option for existing communities to onboard their members to Reunicorn already connected, omitting the necessity of individual connections via any of the above mentioned ways.
 For each community member a personal invitation link is generated, which upon use connects them to any other invitation links from the same batch.
 
 ## Share with Contacts {.title .is-3}

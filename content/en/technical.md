@@ -21,4 +21,4 @@ Find out more about how [MapTiler protects users](https://maptiler.zendesk.com/h
 ## Further Information {.title .is-3}
 
 Read more about the cryptographic protocols and concepts on the [cryptography](cryptography) page.
-And in case you are curious about creating Coagulate compatible apps, our notes on [interoperability](interop) should help.
+And in case you are curious about creating Reunicorn compatible apps, our notes on [interoperability](interop) should help.

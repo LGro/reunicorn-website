@@ -1,9 +1,9 @@
-# Coagulate.Social
+# Reunicorn Website
 
-[![CI/CD](https://github.com/LGro/coagulate.social/actions/workflows/ci_cd.yaml/badge.svg)](https://github.com/LGro/coagulate.social/actions/workflows/ci_cd.yaml)
-[![No Broken Links](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml/badge.svg)](https://github.com/LGro/coagulate.social/actions/workflows/broken_links.yaml)
+[![CI/CD](https://github.com/LGro/reunicorn-website/actions/workflows/ci_cd.yaml/badge.svg)](https://github.com/LGro/reunicorn-website/actions/workflows/ci_cd.yaml)
+[![No Broken Links](https://github.com/LGro/reunicorn-website/actions/workflows/broken_links.yaml/badge.svg)](https://github.com/LGro/reunicorn-website/actions/workflows/broken_links.yaml)
 
-The website accompanying the Coagulate smartphone app, built with [Hugo](https://gohugo.io).
+The website https://reunicorn.app accompanying the corresponding smartphone app, built with [Hugo](https://gohugo.io).
 
 ## Building & Running
 

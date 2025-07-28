@@ -5,7 +5,7 @@ translationKey: cryptography
 
 # Cryptography {.title .is-2}
 
-Coagulate secures your private contact details and location sharing with the following cryptographic mechanisms.
+Reunicorn secures your private contact details and location sharing with the following cryptographic mechanisms.
 We aim to strongly protect you against potentially malicious outside actors like governments, marketing companies, infrastructure operators, or other kinds of surveillance.
 We help detect but only partly protect against attacks where one or multiple of your contacts turn against you by providing misleading information, be it by themselves or colluding with other malicious contacts.
 

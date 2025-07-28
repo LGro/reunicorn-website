@@ -5,13 +5,13 @@ translationKey: interop
 
 # Interoperability {.title .is-2}
 
-If you would like to build your own Veilid based Coagulate compatible app, this page should contain all of the necessary specification.
-However, we would encourage you to propose extensions or changes to Coagulate before setting up independent projects, to focus efforts on a coherent solution.
-If you are for example interested in creating a desktop or web app, the existing Flutter code base is a great starting point, let's discuss your plans in an [issue](https://github.com/LGro/coagulate/issues).
+If you would like to build your own Veilid based Reunicorn compatible app, this page should contain all of the necessary specification.
+However, we would encourage you to propose extensions or changes to Reunicorn before setting up independent projects, to focus efforts on a coherent solution.
+If you are for example interested in creating a desktop or web app, the existing Flutter code base is a great starting point, let's discuss your plans in an [issue](https://github.com/LGro/reunicorn/issues).
 
 ## Sharing Schema {.title .is-3}
 
-This schema describes the main payload encountered during a sharing relationship between two Coagulate users.
+This schema describes the main payload encountered during a sharing relationship between two Reunicorn users.
 In the following text, we consider the author of the payload following this schema on one hand, and the other as the recipient.
 
 This schema is written as a UTF-8 encoded JSON string to the first sub-key of a Veilid DHT record, encrypted either with a pre-arranged shared secret or if available and `ack_handshake_complete` a key derived from the recipient's public key and the author's private key.
@@ -44,7 +44,7 @@ The remaining sub-keys optionally contain the encrypted binary representation of
 - `Map<String, String> emails`
     - Labels with email addresses, e.g. "work" with the value "peter@largecorp.co"
 - `Map<String, String> websites`
-    - Labels with websites, e.g. "blog" with "coagulate.blogspot.tld"
+    - Labels with websites, e.g. "blog" with "reunicorn.blogspot.tld"
 - `Map<String, String> social_medias`
     - Labels with social media or messenger profile names, e.g. "Signal" with "Petr42"
 - `Map<String, DateTime> events`
