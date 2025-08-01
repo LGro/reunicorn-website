@@ -12,23 +12,23 @@
     <meta property="og:title" content="Reunicorn">
     <meta property="og:description" content='{{ T "meta_description" }}'>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href='{{ absURL "/img/apple-touch-icon.png" }}'>
+    <link rel="icon" type="image/png" sizes="32x32" href='{{ absURL "/img/favicon-32x32.png" }}'>
+    <link rel="icon" type="image/png" sizes="16x16" href='{{ absURL "/img/favicon-16x16.png" }}'>
     <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <!-- <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#da532c"> -->
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href='{{ absURL "/img/favicon.ico" }}'>
     <meta name="msapplication-TileColor" content="#da532c">
     <!-- <meta name="msapplication-config" content="/browserconfig.xml"> -->
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/css/bulma/bulma.min.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href='{{ absURL "/css/bulma/bulma.min.css" }}'>
+    <link rel="stylesheet" href='{{ absURL "/css/main.css" }}'>
     <!-- {{ if and .IsPage "c" }}
     <script defer type="module" src="/js/veilid_wasm.js"></script>
     {{ end }} -->
 
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src='{{ absURL "/js/main.js" }}'></script>
 </head>
 
 <body class="index has-navbar-fixed-top">
@@ -44,8 +44,8 @@
     <script defer type="module" src="/js/coagulate.js"></script>
     {{ end }} -->
 
-    <script type="text/javascript" src="/js/lightbox.js"></script>
-    <link rel="stylesheet" href="/css/lightbox.css">
+    <script type="text/javascript" src='{{ absURL "/js/lightbox.js" }}'></script>
+    <link rel="stylesheet" href='{{ absURL "/css/lightbox.css" }}'>
 </body>
 
 </html>
