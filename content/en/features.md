@@ -13,7 +13,7 @@ Before you can share with others, there are different ways to get into contact.
 
 ### Direct Invites via Secret Link or QR Code {.title .is-4}
 
-If you have an existing channel of trusted communication, an encrypted messenger like Signal and others, you can send someone a personal, secret invite link.
+If you have an existing channel of trusted communication, an encrypted messenger like Signal or others, you can send someone a personal, secret invite link.
 
 ### Profile Link based Invites {.title .is-4}
 
