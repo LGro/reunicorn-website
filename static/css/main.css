@@ -7,8 +7,22 @@
     scroll-margin-top: 4rem;
 }
 
+#coagulateMain {
+    overflow-x: hidden;
+    overflow-y: clip;
+    margin-top: 3rem;
+}
+
+
+.hero-body {
+    padding-top: 0rem;
+}
 
 @media screen and (min-width: 1024px) {
+    #coagulateMain {
+        margin-top: 3rem;
+    }
+
     .navbar-brand {
         min-height: 4rem;
         font-size: 1.5em;
@@ -16,6 +30,10 @@
 
     .navbar-item img {
         max-height: 3rem;
+    }
+
+    .hero-body {
+        padding-top: 3rem;
     }
 
     .hero-body h1 {
@@ -36,11 +54,6 @@
 
 a.navbar-item:hover {
     color: #161618;
-}
-
-#coagulateMain {
-    overflow-x: hidden;
-    overflow-y: clip;
 }
 
 .image-gallery li+li {
