@@ -1,0 +1,8 @@
+{{/* Use Hugo's generated anchor if available, else fall back to anchorize */}}
+{{- $id := .Anchor | default (anchorize .Text) -}}
+{{- $level := .Level -}}
+
+<h{{ $level }} id="{{ $id }}">
+    {{ .Text | safeHTML }}
+    <a class="heading-anchor" href="#{{ $id }}" aria-label="Link to this heading">#</a>
+</h{{ $level }}>

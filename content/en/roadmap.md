@@ -72,6 +72,7 @@ These are our ideas to continuously improve Reunicorn after our first public rel
 - Share tags with circles to indicate interests, topics, etc.
 - Batch introductions for folks wo already know each other
 - Hosted map tiles and geocoding privacy proxy via Veilid
+- Isolated circles with deactivated shared contact discovery
 
 ## Feedback {.title .is-3}
 

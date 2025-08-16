@@ -1,11 +1,90 @@
+:root {
+    --anchor-size: 1.75rem;
+    --anchor-gap: 0.5rem;
+    --focus-ring-offset: 2px;
+}
+
 .content p,
 .content li {
     font-size: 1.2rem;
 }
 
-[id] {
-    scroll-margin-top: 4rem;
+.heading-anchor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--anchor-size);
+    height: var(--anchor-size);
+    margin-right: var(--anchor-gap);
+    border-radius: 0.5rem;
+    line-height: 1;
+    text-decoration: none;
+    color: inherit;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    /* desktop default: hidden until hover/focus */
+    opacity: 0;
+    transition: opacity .2s ease, background-color .2s ease;
 }
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+    opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    scroll-margin-top: clamp(3.5rem, 8vh, 6rem);
+}
+
+/* Show on hover (desktop) */
+:where(h1, h2, h3, h4, h5, h6):hover .heading-anchor {
+    opacity: 1;
+}
+
+/* Keyboard users (always show on focus), with a clear ring */
+.heading-anchor:focus-visible {
+    opacity: 1;
+    outline: 2px solid currentColor;
+    outline-offset: var(--focus-ring-offset);
+}
+
+/* Light background on hover/focus for affordance */
+.heading-anchor:hover,
+.heading-anchor:focus-visible {
+    background-color: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+/* Touch screens: no hover—keep anchors visible and tappable */
+@media (hover: none) and (pointer: coarse) {
+    .heading-anchor {
+        opacity: 1;
+        /* always visible */
+        background-color: transparent;
+    }
+
+    /* Slight highlight when the heading is focused-within (e.g., after tapping) */
+    :where(h1, h2, h3, h4, h5, h6):focus-within .heading-anchor {
+        background-color: color-mix(in srgb, currentColor 12%, transparent);
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .heading-anchor {
+        transition: none;
+    }
+}
+
 
 #coagulateMain {
     overflow-x: hidden;
