@@ -32,6 +32,14 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 - Key component to help users connect based on transitive trust
 - Implement smarter introduction suggestions
 
+### Robust Notifications {.title .is-4}
+- Notify users when
+    - a contact schedules a visit close by (with configurable sensitivity)
+    - they receive an introduction proposal
+    - a contact updates their details
+- Battery friendly background job based checks & notifications
+- Privacy friendly push notifications (e.g. involving unified push)
+
 ### Dashboard {.title .is-4}
 - Design and implementation of central dashboard overview
 - Help users understand the sync and sharing status of the distributed storage backend
@@ -41,10 +49,6 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 ### Backup & Portability {.title .is-4}
 - Allow users to switch devices easily
 - Allow recovery after device loss
-
-### Live Location Sharing {.title .is-4}
-- GPS based live location sharing at customized spacial fidelity
-- Performance evaluation of DHT based vs direct P2P communication
 
 ### Events {.title .is-4}
 - Extend the prospective location sharing support for events
