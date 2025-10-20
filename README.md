@@ -18,4 +18,6 @@ Run `wasm_build.sh release` in the Veilid repository at `veilid/veilid-wasm` to 
 
 ## Dependencies
 
-We're including a fixed version of the MIT licensed [kjua](https://github.com/lrsjng/kjua) for qrcode rendering.
+We're including a fixed version of the
+- MIT licensed [kjua](https://github.com/lrsjng/kjua) for qrcode rendering
+- BSD-3-Clause licensed Maptiler client JS for geocoding event addresses when generating Reunicorn event links

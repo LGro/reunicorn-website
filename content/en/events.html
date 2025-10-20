@@ -1,0 +1,144 @@
+<!--
+
+TODO:
+- allow date only, no times
+- fix submit button color
+- add geocode address
+- handle link with fragment -> display event name and open in app dialog / qr code
+- add disclaimer about not endorsing or responsible for event
+
+-->
+<script src="/js/maptiler-client.umd.min.js"></script>
+<script>
+    maptilerClient.config.apiKey = "DMcq4lMip1OGnrzExQRm";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const addressField = document.querySelector('');
+        addressField.addEventListener('onChanged', async function (e) {
+            const result = await maptilerClient.geocoding.forward("paris");
+        });
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Function to generate a UUID based on a hash of the input components
+            async function generateHashBasedUID(name, start, end, location, url, longitude, latitude) {
+                const components = [name, start, end, location, url, longitude, latitude].join('|');
+                const encoder = new TextEncoder();
+                const data = encoder.encode(components);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = new Uint8Array(hashBuffer);
+
+                // Convert first 16 bytes to UUID format (8-4-4-4-12)
+                const hex = Array.from(hashArray.slice(0, 16))
+                    .map(b => b.toString(16).padStart(2, '0'))
+                    .join('');
+
+                return [
+                    hex.slice(0, 8),
+                    hex.slice(8, 12),
+                    hex.slice(12, 16),
+                    hex.slice(16, 20),
+                    hex.slice(20, 32)
+                ].join('-');
+            }
+
+            const name = encodeURIComponent(form.name.value.replace(/~/g, '-'));
+            const start = encodeURIComponent(form.start.value.replace(/~/g, '-'));
+            const end = encodeURIComponent(form.end.value.replace(/~/g, '-'));
+            const location = encodeURIComponent(form.location.value.replace(/~/g, '-'));
+            const url = encodeURIComponent(form.url.value.replace(/~/g, '-'));
+            // longitude and latitude are not in the form, set as empty
+            const longitude = '';
+            const latitude = '';
+
+            // Generate UID based on hash of all components
+            generateHashBasedUID(
+                name, start, end, location, url, longitude, latitude
+            ).then(uid => {
+                const eventUrl = `https://reunicorn.app/events/#${name}~${start}~${end}~${location}~${url}~${longitude}~${latitude}~${uid}`;
+                // Show the generated link below the form
+                let result = document.getElementById('event-link-result');
+                result.innerHTML = `<a href='${eventUrl}' target='_blank'>${eventUrl}</a>`;
+                // Show all elements with .event-link-result class
+                document.querySelectorAll('.event-link-result').forEach(element => {
+                    element.style.display = 'block';
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .event-link-result {
+        display: none;
+    }
+</style>
+
+<div class="mt-6">
+    <h2>Event Link Creator</h2>
+    <p>
+        Enter your event details to generate an event link that allows Reunicorn users to conveniently add your event to
+        their shared locations to let others know they are going.
+    </p>
+    <form>
+        <div class="field">
+            <label class="label">Event Name</label>
+            <div class="control">
+                <input class="input" type="text" id="name" name="name" placeholder="Enter event name">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Start Date & Time</label>
+            <div class="control">
+                <input class="input" type="datetime-local" id="start" name="start">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">End Date & Time</label>
+            <div class="control">
+                <input class="input" type="datetime-local" id="end" name="end">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Location</label>
+            <div class="control">
+                <input class="input" type="text" id="location" name="location" placeholder="Enter event location">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Event URL</label>
+            <div class="control">
+                <input class="input" type="url" id="url" name="url" placeholder="https://example.com/event">
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-primary" type="submit">Generate Event Link</button>
+            </div>
+        </div>
+    </form>
+    <h3 class="event-link-result">Created Event Link</h3>
+    <pre id="event-link-result" class="event-link-result"></pre>
+
+    <h2>Event Link Schema</h2>
+    <p>
+        Reunicorn event links contain the event information as part of the fragment, i.e. the part beginning with the
+        hash (#).
+        The structure is as follows with each of the components indicated by curly braces being URL encoded.
+    </p>
+    <pre>https://reunicorn.app/events/#{name}~{start}~{end}~{location}~{url}~{longitude}~{latitude}~{UID}</pre>
+    <p>
+        One downside of this schema is that the tilde character (~) used for separating fields is not allowed in any of
+        the field values.
+        The link generator above will replace "~" with "-" accordingly.
+    </p>
+
+
+</div>
