@@ -1,9 +1,11 @@
-<!--
+<script>
+    const fragment = window.location.hash.substring(1);
+    const hasEventData = fragment && fragment.split('~').length >= 4;
 
-TODO:
-- fix submit button color
-
--->
+    if (hasEventData) {
+        document.documentElement.classList.add('has-event-data');
+    }
+</script>
 <script src="/js/maptiler-client.umd.min.js"></script>
 <script>
     maptilerClient.config.apiKey = "DMcq4lMip1OGnrzExQRm";
@@ -35,13 +37,17 @@ TODO:
 
         // Display event details
         function displayEventDetails(eventData) {
-            const eventSection = document.querySelector('.mt-6 h1');
-            const eventDetailsContainer = eventSection.parentElement.querySelector('p');
+            const eventDetailsContainer = document.querySelector('#event-section p');
 
             if (!eventData) {
-                eventDetailsContainer.innerHTML = '<!-- TODO: display event details from fragment here -->';
+                // No event data - remove class to show creator
+                document.documentElement.classList.remove('has-event-data');
+                eventDetailsContainer.innerHTML = '<!-- Event details will be displayed here when loaded from URL fragment -->';
                 return;
             }
+
+            // Event data present - add class to show event section
+            document.documentElement.classList.add('has-event-data');
 
             // Format dates for display
             function formatDateTime(dateTimeStr) {
@@ -362,137 +368,164 @@ TODO:
     .event-details .field:last-child {
         margin-bottom: 0;
     }
+
+    /* Default state: show event creator, hide event section */
+    #event-section {
+        display: none;
+    }
+
+    #event-creator-section {
+        display: block;
+    }
+
+    /* When event data is present (class set by minimal JS), show event section and hide creator */
+    .has-event-data #event-section {
+        display: block;
+    }
+
+    .has-event-data #event-creator-section {
+        display: none;
+    }
 </style>
 
 <div class="mt-6">
-    <h1>Event</h1>
-    <div class="content">
+    <div id="event-section">
+        <h1>Event</h1>
+        <div class="content">
+            <p>
+                This is a Reunicorn event link that allows you to add this event as a future location in your Reunicorn
+                app.
+                By adding it to your shared locations, you can let your contacts know that you're planning to attend
+                this
+                event.
+            </p>
+        </div>
         <p>
-            This is a Reunicorn event link that allows you to add this event as a future location in your Reunicorn app.
-            By adding it to your shared locations, you can let your contacts know that you're planning to attend this
-            event.
+            <!-- Event details will be displayed here when loaded from URL fragment -->
+        </p>
+        <div class="notification is-light">
+            <strong>Disclaimer:</strong> Reunicorn is not affiliated with, nor does it endorse, promote, or take
+            responsibility for this event.
+            Event information is provided by users and Reunicorn does not guarantee its accuracy or reliability.
+            Please verify event details independently before attending.
+        </div>
+        <div class="content">
+            <p>
+                <strong>To add this event to Reunicorn:</strong>
+            </p>
+            <ol>
+                <li>Open this page on your phone with Reunicorn installed, or</li>
+                <li>If you opened this page on another device, scan this QR code with your phone:</li>
+            </ol>
+        </div>
+        <div class="has-text-centered">
+            <div data-placeholder-qrcode></div>
+            <script type="text/javascript" src="/js/kjua.min.js"></script>
+            <script type="text/javascript">
+                document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
+            </script>
+        </div>
+    </div>
+
+    <div id="event-creator-section">
+        <h1>Event Link Creator</h1>
+        <p>
+            Enter your event details to generate an event link that allows Reunicorn users to conveniently add your
+            event to
+            their shared locations to let others know they are going.
+        </p>
+        <form>
+            <div class="field">
+                <label class="label">Event Name</label>
+                <div class="control">
+                    <input class="input" type="text" id="name" name="name" placeholder="Enter event name">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Date & Time Options</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="dateTimeType" value="datetime" checked>
+                        Specific date and time
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="dateTimeType" value="date">
+                        Full day event (date only)
+                    </label>
+                </div>
+            </div>
+
+            <div class="field" id="datetime-fields">
+                <div class="field">
+                    <label class="label">Start Date & Time</label>
+                    <div class="control">
+                        <input class="input" type="datetime-local" id="start-datetime" name="start-datetime">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">End Date & Time</label>
+                    <div class="control">
+                        <input class="input" type="datetime-local" id="end-datetime" name="end-datetime">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field" id="date-fields" style="display: none;">
+                <div class="field">
+                    <label class="label">Start Date</label>
+                    <div class="control">
+                        <input class="input" type="date" id="start-date" name="start-date">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">End Date</label>
+                    <div class="control">
+                        <input class="input" type="date" id="end-date" name="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Location</label>
+                <div class="control">
+                    <input class="input" type="text" id="location" name="location" placeholder="Enter event location">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Event URL</label>
+                <div class="control">
+                    <input class="input" type="url" id="url" name="url" placeholder="https://example.com/event">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary" type="submit">Generate Event Link</button>
+                </div>
+            </div>
+        </form>
+        <h2 class="event-link-result">Created Event Link</h2>
+        <pre id="event-link-result" class="event-link-result"></pre>
+
+        <h2>Event Link Schema</h2>
+        <p>
+            Reunicorn event links contain the event information as part of the fragment, i.e. the part beginning with
+            the
+            hash (#).
+            The structure is as follows with each of the components indicated by curly braces being URL encoded.
+        </p>
+        <pre>https://reunicorn.app/events/#{name}~{start}~{end}~{location}~{url}~{longitude}~{latitude}~{UID}</pre>
+        <p>
+            One downside of this schema is that the tilde character (~) used for separating fields is not allowed in any
+            of
+            the field values.
+            The link generator above will replace "~" with "-" accordingly.
         </p>
     </div>
-    <p>
-        <!-- Event details will be displayed here when loaded from URL fragment -->
-    </p>
-    <div class="notification is-light">
-        <strong>Disclaimer:</strong> Reunicorn is not affiliated with, nor does it endorse, promote, or take
-        responsibility for this event.
-        Event information is provided by users and Reunicorn does not guarantee its accuracy or reliability.
-        Please verify event details independently before attending.
-    </div>
-    <div class="content">
-        <p>
-            <strong>To add this event to Reunicorn:</strong>
-        </p>
-        <ol>
-            <li>Open this page on your phone with Reunicorn installed, or</li>
-            <li>If you opened this page on another device, scan this QR code with your phone:</li>
-        </ol>
-    </div>
-    <div class="has-text-centered">
-        <div data-placeholder-qrcode></div>
-        <script type="text/javascript" src="/js/kjua.min.js"></script>
-        <script type="text/javascript">
-            document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
-        </script>
-    </div>
 
-    <h1>Event Link Creator</h1>
-    <p>
-        Enter your event details to generate an event link that allows Reunicorn users to conveniently add your event to
-        their shared locations to let others know they are going.
-    </p>
-    <form>
-        <div class="field">
-            <label class="label">Event Name</label>
-            <div class="control">
-                <input class="input" type="text" id="name" name="name" placeholder="Enter event name">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Date & Time Options</label>
-            <div class="control">
-                <label class="radio">
-                    <input type="radio" name="dateTimeType" value="datetime" checked>
-                    Specific date and time
-                </label>
-                <label class="radio">
-                    <input type="radio" name="dateTimeType" value="date">
-                    Full day event (date only)
-                </label>
-            </div>
-        </div>
-
-        <div class="field" id="datetime-fields">
-            <div class="field">
-                <label class="label">Start Date & Time</label>
-                <div class="control">
-                    <input class="input" type="datetime-local" id="start-datetime" name="start-datetime">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">End Date & Time</label>
-                <div class="control">
-                    <input class="input" type="datetime-local" id="end-datetime" name="end-datetime">
-                </div>
-            </div>
-        </div>
-
-        <div class="field" id="date-fields" style="display: none;">
-            <div class="field">
-                <label class="label">Start Date</label>
-                <div class="control">
-                    <input class="input" type="date" id="start-date" name="start-date">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">End Date</label>
-                <div class="control">
-                    <input class="input" type="date" id="end-date" name="end-date">
-                </div>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Location</label>
-            <div class="control">
-                <input class="input" type="text" id="location" name="location" placeholder="Enter event location">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Event URL</label>
-            <div class="control">
-                <input class="input" type="url" id="url" name="url" placeholder="https://example.com/event">
-            </div>
-        </div>
-
-        <div class="field">
-            <div class="control">
-                <button class="button is-primary" type="submit">Generate Event Link</button>
-            </div>
-        </div>
-    </form>
-    <h2 class="event-link-result">Created Event Link</h2>
-    <pre id="event-link-result" class="event-link-result"></pre>
-
-    <h2>Event Link Schema</h2>
-    <p>
-        Reunicorn event links contain the event information as part of the fragment, i.e. the part beginning with the
-        hash (#).
-        The structure is as follows with each of the components indicated by curly braces being URL encoded.
-    </p>
-    <pre>https://reunicorn.app/events/#{name}~{start}~{end}~{location}~{url}~{longitude}~{latitude}~{UID}</pre>
-    <p>
-        One downside of this schema is that the tilde character (~) used for separating fields is not allowed in any of
-        the field values.
-        The link generator above will replace "~" with "-" accordingly.
-    </p>
-
-
+</div>
 </div>
