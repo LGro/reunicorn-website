@@ -2,7 +2,6 @@
 
 TODO:
 - fix submit button color
-- add disclaimer about not endorsing or responsible for event
 
 -->
 <script src="/js/maptiler-client.umd.min.js"></script>
@@ -367,18 +366,38 @@ TODO:
 
 <div class="mt-6">
     <h1>Event</h1>
+    <div class="content">
+        <p>
+            This is a Reunicorn event link that allows you to add this event as a future location in your Reunicorn app.
+            By adding it to your shared locations, you can let your contacts know that you're planning to attend this
+            event.
+        </p>
+    </div>
     <p>
         <!-- Event details will be displayed here when loaded from URL fragment -->
     </p>
-    <p>
-        Open this page on your phone with Reunicorn installed.
-        If you opened this page on another device, you can scan this QR code with your phone.
-    <div data-placeholder-qrcode></div>
-    <script type="text/javascript" src="/js/kjua.min.js"></script>
-    <script type="text/javascript">
-        document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
-    </script>
-    </p>
+    <div class="notification is-light">
+        <strong>Disclaimer:</strong> Reunicorn is not affiliated with, nor does it endorse, promote, or take
+        responsibility for this event.
+        Event information is provided by users and Reunicorn does not guarantee its accuracy or reliability.
+        Please verify event details independently before attending.
+    </div>
+    <div class="content">
+        <p>
+            <strong>To add this event to Reunicorn:</strong>
+        </p>
+        <ol>
+            <li>Open this page on your phone with Reunicorn installed, or</li>
+            <li>If you opened this page on another device, scan this QR code with your phone:</li>
+        </ol>
+    </div>
+    <div class="has-text-centered">
+        <div data-placeholder-qrcode></div>
+        <script type="text/javascript" src="/js/kjua.min.js"></script>
+        <script type="text/javascript">
+            document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
+        </script>
+    </div>
 
     <h1>Event Link Creator</h1>
     <p>
