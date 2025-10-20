@@ -1,9 +1,7 @@
 <!--
 
 TODO:
-- allow date only, no times
 - fix submit button color
-- add geocode address
 - handle link with fragment -> display event name and open in app dialog / qr code
 - add disclaimer about not endorsing or responsible for event
 
@@ -124,6 +122,23 @@ TODO:
             }
         });
 
+        // Handle date/time input type switching
+        const dateTimeRadios = document.querySelectorAll('input[name="dateTimeType"]');
+        const datetimeFields = document.getElementById('datetime-fields');
+        const dateFields = document.getElementById('date-fields');
+
+        dateTimeRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'datetime') {
+                    datetimeFields.style.display = 'block';
+                    dateFields.style.display = 'none';
+                } else {
+                    datetimeFields.style.display = 'none';
+                    dateFields.style.display = 'block';
+                }
+            });
+        });
+
         const form = document.querySelector('form');
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -150,9 +165,43 @@ TODO:
                 ].join('-');
             }
 
+            // Get date/time values based on selected input type
+            const dateTimeType = form.dateTimeType.value;
+
+            // Basic validation
+            let hasValidDate = false;
+
+            if (dateTimeType === 'datetime') {
+                hasValidDate = form['start-datetime'].value || form['end-datetime'].value;
+            } else {
+                hasValidDate = form['start-date'].value || form['end-date'].value;
+            }
+
+            if (!hasValidDate) {
+                alert('Please provide at least a start date for your event.');
+                return;
+            }
+            let startValue, endValue;
+
+            // if (dateTimeType === 'datetime') {
+            startValue = form['start-datetime'].value;
+            endValue = form['end-datetime'].value;
+            // } else {
+            //     // For date-only, use start of day for start date and end of day for end date
+            //     const startDate = form['start-date'].value;
+            //     const endDate = form['end-date'].value;
+
+            //     if (startDate) {
+            //         startValue = startDate + 'T00:00:00';
+            //     }
+            //     if (endDate) {
+            //         endValue = endDate + 'T23:59:59';
+            //     }
+            // }
+
             const name = encodeURIComponent(form.name.value.replace(/~/g, '-'));
-            const start = encodeURIComponent(form.start.value.replace(/~/g, '-'));
-            const end = encodeURIComponent(form.end.value.replace(/~/g, '-'));
+            const start = encodeURIComponent((startValue || '').replace(/~/g, '-'));
+            const end = encodeURIComponent((endValue || '').replace(/~/g, '-'));
             const location = encodeURIComponent(form.location.value.replace(/~/g, '-'));
             const url = encodeURIComponent(form.url.value.replace(/~/g, '-'));
             // Use geocoded coordinates if available
@@ -162,8 +211,8 @@ TODO:
             // Generate UID based on hash of all components
             generateHashBasedUID(
                 form.name.value.replace(/~/g, '-'),
-                form.start.value.replace(/~/g, '-'),
-                form.end.value.replace(/~/g, '-'),
+                (startValue || '').replace(/~/g, '-'),
+                (endValue || '').replace(/~/g, '-'),
                 form.location.value.replace(/~/g, '-'),
                 form.url.value.replace(/~/g, '-'),
                 longitude,
@@ -233,16 +282,48 @@ TODO:
         </div>
 
         <div class="field">
-            <label class="label">Start Date & Time</label>
+            <label class="label">Date & Time Options</label>
             <div class="control">
-                <input class="input" type="datetime-local" id="start" name="start">
+                <label class="radio">
+                    <input type="radio" name="dateTimeType" value="datetime" checked>
+                    Specific date and time
+                </label>
+                <label class="radio">
+                    <input type="radio" name="dateTimeType" value="date">
+                    Full day event (date only)
+                </label>
             </div>
         </div>
 
-        <div class="field">
-            <label class="label">End Date & Time</label>
-            <div class="control">
-                <input class="input" type="datetime-local" id="end" name="end">
+        <div class="field" id="datetime-fields">
+            <div class="field">
+                <label class="label">Start Date & Time</label>
+                <div class="control">
+                    <input class="input" type="datetime-local" id="start-datetime" name="start-datetime">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">End Date & Time</label>
+                <div class="control">
+                    <input class="input" type="datetime-local" id="end-datetime" name="end-datetime">
+                </div>
+            </div>
+        </div>
+
+        <div class="field" id="date-fields" style="display: none;">
+            <div class="field">
+                <label class="label">Start Date</label>
+                <div class="control">
+                    <input class="input" type="date" id="start-date" name="start-date">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">End Date</label>
+                <div class="control">
+                    <input class="input" type="date" id="end-date" name="end-date">
+                </div>
             </div>
         </div>
 
