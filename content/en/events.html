@@ -2,7 +2,6 @@
 
 TODO:
 - fix submit button color
-- handle link with fragment -> display event name and open in app dialog / qr code
 - add disclaimer about not endorsing or responsible for event
 
 -->
@@ -13,6 +12,82 @@ TODO:
     document.addEventListener("DOMContentLoaded", function () {
         let selectedCoordinates = { longitude: '', latitude: '' };
         let addressSuggestions = [];
+
+        // Parse event details from URL fragment
+        function parseEventFromFragment() {
+            const fragment = window.location.hash.substring(1); // Remove the # symbol
+            if (!fragment) return null;
+
+            const parts = fragment.split('~');
+            if (parts.length >= 4) {
+                return {
+                    name: decodeURIComponent(parts[0] || ''),
+                    start: decodeURIComponent(parts[1] || ''),
+                    end: decodeURIComponent(parts[2] || ''),
+                    location: decodeURIComponent(parts[3] || ''),
+                    url: decodeURIComponent(parts[4] || ''),
+                    longitude: parts[5] || '',
+                    latitude: parts[6] || '',
+                    uid: parts[7] || ''
+                };
+            }
+            return null;
+        }
+
+        // Display event details
+        function displayEventDetails(eventData) {
+            const eventSection = document.querySelector('.mt-6 h1');
+            const eventDetailsContainer = eventSection.parentElement.querySelector('p');
+
+            if (!eventData) {
+                eventDetailsContainer.innerHTML = '<!-- TODO: display event details from fragment here -->';
+                return;
+            }
+
+            // Format dates for display
+            function formatDateTime(dateTimeStr) {
+                if (!dateTimeStr) return 'Not specified';
+                try {
+                    const date = new Date(dateTimeStr);
+                    return date.toLocaleString();
+                } catch (e) {
+                    return dateTimeStr;
+                }
+            }
+
+            const eventDetailsHTML = `
+                <div class="event-details">
+                    <h3>${eventData.name || 'Untitled Event'}</h3>
+                    <div class="field">
+                        <strong>Start:</strong> ${formatDateTime(eventData.start)}
+                    </div>
+                    <div class="field">
+                        <strong>End:</strong> ${formatDateTime(eventData.end)}
+                    </div>
+                    <div class="field">
+                        <strong>Location:</strong> ${eventData.location || 'Not specified'}
+                    </div>
+                    ${eventData.url ? `<div class="field">
+                        <strong>Event URL:</strong> <a href="${eventData.url}" target="_blank">${eventData.url}</a>
+                    </div>` : ''}
+                    ${eventData.longitude && eventData.latitude ? `<div class="field">
+                        <strong>Coordinates:</strong> ${eventData.latitude}, ${eventData.longitude}
+                    </div>` : ''}
+                </div>
+            `;
+
+            eventDetailsContainer.innerHTML = eventDetailsHTML;
+        }
+
+        // Check for event data in fragment on page load
+        const eventData = parseEventFromFragment();
+        displayEventDetails(eventData);
+
+        // Listen for hash changes (if user navigates)
+        window.addEventListener('hashchange', function () {
+            const newEventData = parseEventFromFragment();
+            displayEventDetails(newEventData);
+        });
 
         const locationInput = document.getElementById('location');
         const locationField = locationInput.parentElement.parentElement;
@@ -265,10 +340,47 @@ TODO:
     .address-suggestion-item:last-child {
         border-bottom: none;
     }
+
+    .event-details {
+        background-color: #f5f5f5;
+        padding: 1.5rem;
+        border-radius: 6px;
+        margin-bottom: 2rem;
+        border-left: 4px solid #3273dc;
+    }
+
+    .event-details h3 {
+        margin-top: 0;
+        color: #363636;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .event-details .field {
+        margin-bottom: 0.75rem;
+    }
+
+    .event-details .field:last-child {
+        margin-bottom: 0;
+    }
 </style>
 
 <div class="mt-6">
-    <h2>Event Link Creator</h2>
+    <h1>Event</h1>
+    <p>
+        <!-- Event details will be displayed here when loaded from URL fragment -->
+    </p>
+    <p>
+        Open this page on your phone with Reunicorn installed.
+        If you opened this page on another device, you can scan this QR code with your phone.
+    <div data-placeholder-qrcode></div>
+    <script type="text/javascript" src="/js/kjua.min.js"></script>
+    <script type="text/javascript">
+        document.querySelector("[data-placeholder-qrcode]").appendChild(kjua({ text: `${window.location}` }));
+    </script>
+    </p>
+
+    <h1>Event Link Creator</h1>
     <p>
         Enter your event details to generate an event link that allows Reunicorn users to conveniently add your event to
         their shared locations to let others know they are going.
@@ -347,7 +459,7 @@ TODO:
             </div>
         </div>
     </form>
-    <h3 class="event-link-result">Created Event Link</h3>
+    <h2 class="event-link-result">Created Event Link</h2>
     <pre id="event-link-result" class="event-link-result"></pre>
 
     <h2>Event Link Schema</h2>
