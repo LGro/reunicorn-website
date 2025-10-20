@@ -13,9 +13,115 @@ TODO:
     maptilerClient.config.apiKey = "DMcq4lMip1OGnrzExQRm";
 
     document.addEventListener("DOMContentLoaded", function () {
-        const addressField = document.querySelector('');
-        addressField.addEventListener('onChanged', async function (e) {
-            const result = await maptilerClient.geocoding.forward("paris");
+        let selectedCoordinates = { longitude: '', latitude: '' };
+        let addressSuggestions = [];
+
+        const locationInput = document.getElementById('location');
+        const locationField = locationInput.parentElement.parentElement;
+
+        // Create suggestions dropdown
+        const suggestionsDiv = document.createElement('div');
+        suggestionsDiv.className = 'address-suggestions';
+        suggestionsDiv.style.display = 'none';
+
+        const dropdownWrapper = document.createElement('div');
+        dropdownWrapper.className = 'dropdown';
+        dropdownWrapper.style.position = 'relative';
+        dropdownWrapper.style.width = '100%';
+
+        locationInput.parentElement.style.position = 'relative';
+        locationInput.parentElement.appendChild(suggestionsDiv);
+
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Search for addresses
+        async function searchAddresses(query) {
+            if (query.length < 3) {
+                suggestionsDiv.style.display = 'none';
+                return;
+            }
+
+            try {
+                const result = await maptilerClient.geocoding.forward(query, {
+                    limit: 5,
+                    types: ['poi', 'address', 'place']
+                });
+
+                addressSuggestions = result.features;
+                displaySuggestions(addressSuggestions);
+            } catch (error) {
+                console.error('Geocoding error:', error);
+                suggestionsDiv.style.display = 'none';
+            }
+        }
+
+        // Display address suggestions
+        function displaySuggestions(suggestions) {
+            suggestionsDiv.innerHTML = '';
+
+            if (suggestions.length === 0) {
+                suggestionsDiv.style.display = 'none';
+                return;
+            }
+
+            suggestions.forEach((suggestion, index) => {
+                const item = document.createElement('div');
+                item.className = 'address-suggestion-item';
+                item.textContent = suggestion.place_name;
+
+                item.addEventListener('click', function () {
+                    selectAddress(suggestion);
+                });
+
+                suggestionsDiv.appendChild(item);
+            });
+
+            suggestionsDiv.style.display = 'block';
+        }
+
+        // Select an address
+        function selectAddress(suggestion) {
+            locationInput.value = suggestion.place_name;
+            selectedCoordinates = {
+                longitude: suggestion.center[0].toString(),
+                latitude: suggestion.center[1].toString()
+            };
+            suggestionsDiv.style.display = 'none';
+        }
+
+        // Add event listeners
+        const debouncedSearch = debounce(searchAddresses, 300);
+
+        locationInput.addEventListener('input', function (e) {
+            const query = e.target.value;
+            if (query !== addressSuggestions.find(s => s.place_name === query)?.place_name) {
+                selectedCoordinates = { longitude: '', latitude: '' };
+            }
+            debouncedSearch(query);
+        });
+
+        locationInput.addEventListener('focus', function () {
+            if (addressSuggestions.length > 0 && locationInput.value.length >= 3) {
+                suggestionsDiv.style.display = 'block';
+            }
+        });
+
+        // Hide suggestions when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!locationField.contains(e.target)) {
+                suggestionsDiv.style.display = 'none';
+            }
         });
 
         const form = document.querySelector('form');
@@ -49,13 +155,19 @@ TODO:
             const end = encodeURIComponent(form.end.value.replace(/~/g, '-'));
             const location = encodeURIComponent(form.location.value.replace(/~/g, '-'));
             const url = encodeURIComponent(form.url.value.replace(/~/g, '-'));
-            // longitude and latitude are not in the form, set as empty
-            const longitude = '';
-            const latitude = '';
+            // Use geocoded coordinates if available
+            const longitude = selectedCoordinates.longitude;
+            const latitude = selectedCoordinates.latitude;
 
             // Generate UID based on hash of all components
             generateHashBasedUID(
-                name, start, end, location, url, longitude, latitude
+                form.name.value.replace(/~/g, '-'),
+                form.start.value.replace(/~/g, '-'),
+                form.end.value.replace(/~/g, '-'),
+                form.location.value.replace(/~/g, '-'),
+                form.url.value.replace(/~/g, '-'),
+                longitude,
+                latitude
             ).then(uid => {
                 const eventUrl = `https://reunicorn.app/events/#${name}~${start}~${end}~${location}~${url}~${longitude}~${latitude}~${uid}`;
                 // Show the generated link below the form
@@ -73,6 +185,36 @@ TODO:
 <style>
     .event-link-result {
         display: none;
+    }
+
+    .address-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #dbdbdb;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .address-suggestion-item {
+        padding: 10px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #f5f5f5;
+        transition: background-color 0.2s;
+    }
+
+    .address-suggestion-item:hover {
+        background-color: #f5f5f5;
+    }
+
+    .address-suggestion-item:last-child {
+        border-bottom: none;
     }
 </style>
 
