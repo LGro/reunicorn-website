@@ -13,7 +13,7 @@ Matching the release schedule of the underlying Veilid framework, we aim for the
 
 Don't want to wait until August 2026?
 As a successor to our current closed testing phase, we aim for an open testing phase to start in early 2026.
-Users will be able to onboard themselves but might still face instabilities or braking changes.
+Users will be able to onboard themselves but might still face instabilities or breaking changes.
 
 ## Current Work Packages {.title .is-3}
 
