@@ -2,7 +2,8 @@
     <div class="content has-text-centered">
         <p>
             <strong>Reunicorn</strong>
-            <br>
+        </p>
+        <p>
             {{ T "developed_by" }} <a href="https://github.com/LGro/reunicorn/graphs/contributors" target="_blank">
                 {{ T "the_community" }}</a>
             <!-- <br>
@@ -12,12 +13,18 @@
             <br>
             Review the <a href="https://github.com/LGro/reunicorn" target="_blank">source code</a>
         </p>
-        <!-- <p>
-            {{ with .Site.GetPage "legal-notice" }}
+        <p>
+            {{ with .Site.GetPage "imprint" }}
             <a href="{{ .RelPermalink }}">{{ T "imprint" }}</a>
             {{ end }}
             <br>
-            <a href="#">{{ T "privacy_policy" }}</a>
-        </p> -->
+            {{ with .Site.GetPage "terms" }}
+            <a href="{{ .RelPermalink }}">{{ T "terms" }}</a>
+            {{ end }}
+            <br>
+            {{ with .Site.GetPage "privacy_policy" }}
+            <a href="{{ .RelPermalink }}">{{ T "privacy_policy" }}</a>
+            {{ end }}
+        </p>
     </div>
 </footer>

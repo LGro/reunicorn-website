@@ -92,6 +92,9 @@ h6 {
     margin-top: 3rem;
 }
 
+#coagulateMain p {
+    word-wrap: break-word;
+}
 
 .hero-body {
     padding-top: 0rem;
