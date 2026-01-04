@@ -51,6 +51,8 @@ You can share the following contact details with others:
 - Websites
 - Organization membership incl. roles
 - Dates like your birthday or anniversaries
+- Miscellaneous custom fields
+- Tags to indicate interests, topics, etc.
 - Profile picture
 
 ### Temporary (Future) Locations

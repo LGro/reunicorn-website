@@ -73,7 +73,6 @@ These are our ideas to continuously improve Reunicorn after our first public rel
 - Fine grained notification settings, allowing users to configure per circle, contact, or location which things they want to be notified about
 - Translation into more languages like Spanish, German, and French
 - Accessibility improvements like consistent UI scaling, high contrast mode, screen reader compatibility and use of platform accessibility APIs
-- Share tags with circles to indicate interests, topics, etc.
 - Batch introductions for folks wo already know each other
 - Hosted map tiles and geocoding privacy proxy via Veilid
 - Isolated circles with deactivated shared contact discovery
