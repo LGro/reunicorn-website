@@ -7,7 +7,7 @@ translationKey: interop
 
 If you would like to build your own Veilid based Reunicorn compatible app, this page should contain all of the necessary specification.
 However, we would encourage you to propose extensions or changes to Reunicorn before setting up independent projects, to focus efforts on a coherent solution.
-If you are for example interested in creating a desktop or web app, the existing Flutter code base is a great starting point, let's discuss your plans in an [issue](https://github.com/LGro/reunicorn/issues).
+If you are for example interested in creating a desktop or web app, the existing Flutter code base is a great starting point, let's discuss your plans in an [issue](https://codeberg.org/Reunicorn/reunicorn-app/issues).
 
 ## Sharing Schema {.title .is-3}
 

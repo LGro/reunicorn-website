@@ -17,7 +17,7 @@ We use this mission statement as a reference to help prioritize potential featur
 
 While using Reunicorn, you noticed something that you would like to share?
 Do you have suggestions for improvement, or did you find an unintuitive aspect?
-Please write us about your impression and what you would wish to have changed via e-mail at feedback|at|reunicorn.app, or create an [issue](https://github.com/LGro/reunicorn/issues/new) in case you are familiar with GitHub.
+Please write us about your impression and what you would wish to have changed via e-mail at feedback|at|reunicorn.app, or create an [issue](https://codeberg.org/Reunicorn/reunicorn-app/issues) in case you are familiar with Codeberg.
 
 
 ## Translation {.title .is-3}
@@ -29,13 +29,13 @@ If you want to help with bringing Reunicorn to an even wider audience, please re
 
 ## Documentation {.title .is-3}
 
-Both for the documentation aimed at developers in the [app repository](https://github.com/LGro/reunicorn), as well as for the [website repository](https://github.com/LGro/reunicorn/issues/new), we need a hand.
+Both for the documentation aimed at developers in the [app repository](https://codeberg.org/Reunicorn/reunicorn-app), as well as for the [website repository](https://codeberg.org/Reunicorn/reunicorn-website), we need a hand.
 You can help add alternatives and how Reunicorn is different, or sharpen the current description as well as elaborate on our plans for the future.
 
 
 ## Development {.title .is-3}
 
 You are interested in developing with Dart and Flutter, or curious what other aspects are relevant for developing a mobile cross-platform app?
-Then have a look at the Reunicorn [repository on GitHub.com](https://github.com/LGro/reunicorn).
-Tasks that are especially suitable for new contributors are marked ["good first issue"](https://github.com/LGro/reunicorn/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
-More generally, you can also have a look at where we state ["help wanted"](https://github.com/LGro/reunicorn/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22).
+Then have a look at the Reunicorn [repository on Codeberg](https://codeberg.org/Reunicorn/reunicorn-app).
+Tasks that are especially suitable for new contributors are marked ["good first issue"](https://codeberg.org/Reunicorn/reunicorn-app/issues?q=&type=all&sort=&labels=1020662&state=open&milestone=0&project=0&assignee=0&poster=0).
+More generally, you can also have a look at where we state ["help wanted"](https://codeberg.org/Reunicorn/reunicorn-app/issues?q=&type=all&sort=&labels=1020647&state=open&milestone=0&project=0&assignee=0&poster=0).
