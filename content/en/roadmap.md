@@ -47,8 +47,9 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 - Move updates overview front & center
 
 ### Backup & Portability {.title .is-4}
-- Allow users to switch devices easily
-- Allow recovery after device loss
+- Allow exporting the backup restore secret as QR code
+- Have contacts pin backup record
+- Allow to Shamir secret split the recovery secret across few trusted contacts
 
 ### Events {.title .is-4}
 - Extend the prospective location sharing support for events
@@ -59,6 +60,7 @@ Also, depending on the user feedback we get, we might decide to shift focus alon
 - Investigate and document approaches to build on existing networks of trust
 - Investigate and document how other applications can benefit from the network of trust users build in Reunicorn
 - Target: Engage with the maintainers of Veilid and one other framework to draft a joint agenda for interoperability
+- See the work in progress in this [VeilidChat issue on GitLab.com](https://gitlab.com/veilid/veilidchat/-/issues/65)
 
 ### Developer Experience {.title .is-4}
 - Documentation for developer onboarding

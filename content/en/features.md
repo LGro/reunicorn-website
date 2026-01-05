@@ -72,6 +72,10 @@ All your as well as your contacts' locations are visible on one integrated map;
 Empowering you to see who you can meet where.  
 You can see details like the exact address or for temporary locations the start and end times when you tap on a location marker.
 
+## Backup & Portability {.title .is-3}
+
+To restore your profile and contacts when you are switching to a different phone, you can save a secret text - ideally separate from your phone - which can be used to restore your account with any fresh installation of Reunicorn.
+
 ## Security & Privacy {.title .is-3}
 
 All shared information is end-to-end encrypted, only for your contacts to see.
