@@ -92,7 +92,8 @@ h6 {
     margin-top: 3rem;
 }
 
-#coagulateMain p {
+#coagulateMain p,
+#coagulateMain .content {
     word-wrap: break-word;
 }
 
