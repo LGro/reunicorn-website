@@ -75,9 +75,10 @@ You can see details like the exact address or for temporary locations the start 
 ## Backup & Portability {.title .is-3}
 
 To restore your profile and contacts when you are switching to a different phone, you can save a secret text - ideally separate from your phone - which can be used to restore your account with any fresh installation of Reunicorn.
+For better availability of your encrypted backup, your contacts are asked to hold on to it for you.
 
 ## Security & Privacy {.title .is-3}
 
 All shared information is end-to-end encrypted, only for your contacts to see.
-Your connections to others are not observable to outside parties.
+Your connections to others are not observable to outside parties, i.e. the meta-data of your social graph is private.
 If you are interested in more technical details on this, check out or [cryptography](cryptography) page.
