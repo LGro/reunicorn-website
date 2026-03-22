@@ -27,6 +27,13 @@ We are looking for translation maintainers that take responsibility for creating
 If you want to help with bringing Reunicorn to an even wider audience, please reach out via e-mail to feedback|at|reunicorn.app
 
 
+## Cryptography {.title .is-3}
+
+Do you have experience with cryptography?
+We think more eyes on the Reunicorn source code help identify potential issues and clarify attack vectors.
+Please write us via e-mail at feedback|at|reunicorn.app
+
+
 ## Documentation {.title .is-3}
 
 Both for the documentation aimed at developers in the [app repository](https://codeberg.org/Reunicorn/reunicorn-app), as well as for the [website repository](https://codeberg.org/Reunicorn/reunicorn-website), we need a hand.
@@ -39,3 +46,6 @@ You are interested in developing with Dart and Flutter, or curious what other as
 Then have a look at the Reunicorn [repository on Codeberg](https://codeberg.org/Reunicorn/reunicorn-app).
 Tasks that are especially suitable for new contributors are marked ["good first issue"](https://codeberg.org/Reunicorn/reunicorn-app/issues?q=&type=all&sort=&labels=1020662&state=open&milestone=0&project=0&assignee=0&poster=0).
 More generally, you can also have a look at where we state ["help wanted"](https://codeberg.org/Reunicorn/reunicorn-app/issues?q=&type=all&sort=&labels=1020647&state=open&milestone=0&project=0&assignee=0&poster=0).
+
+Note, though, that we are more interested in developers joining the project longer term than individual one-off contributions.
+This is mainly the case, because we want to be gentle with our maintainer's bandwidth and facilitate consistent alignment with the overall mission.
