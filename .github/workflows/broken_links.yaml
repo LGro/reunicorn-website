@@ -10,13 +10,15 @@ on:
 jobs:
   check-broken-links:
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     container: ubuntu:latest
     steps:
-      - name: Install wget
-        run: apt update && apt install -y -qq wget
+      - name: Install link checker runtime
+        run: apt update && apt install -y -qq python3
       - uses: actions/checkout@v3
+      - name: Test link checker
+        run: python3 -m unittest discover -s tests -p 'test_check_broken_links.py'
       - name: Check ${{ matrix.language }}
-        if: always()
         shell: bash
         run: ./check_broken_links.sh https://reunicorn.app
       - uses: actions/upload-artifact@v4
