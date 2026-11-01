@@ -7,11 +7,11 @@ translationKey: roadmap
 
 ## Release in Autumn 2026 {.title .is-3}
 
-Matching the release schedule of the underlying Veilid framework, we aim for the first stable, public Reunicorn release in the Apple App Store, Google Play Store, and on f-droid in autumn 2026.
+Matching the release schedule of the underlying Veilid framework, we aim for the first stable, public Reunicorn release in the Apple App Store, Google Play Store, and on f-droid in early 2027.
 
 ## Current Work Packages {.title .is-3}
 
-Until our first stable release in autumn 2026, we are focusing on the following work packages.
+Until our first stable release in early 2027, we are focusing on the following work packages.
 Keep in mind, all feature development is done by folks volunteering their time to the project without requiring financial compensation.
 Also, depending on the user feedback we get, we might decide to shift focus along the way and update the work packages below accordingly.
 
