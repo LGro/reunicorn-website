@@ -17,8 +17,9 @@ And while the three Swedes behind Beer With Me seem like nice folks, we hope tha
 
 ## Live Location Sharing {.title .is-3}
 
-If you are just looking for sharing your current location with others, [Glympse](https://app.glympse.com), [MyGrid](https://mygrid.app), and [Paralino](https://paralino.com) are aimed at that and at least offer end-to-end encryption.
-However, all of them leak meta-data to the service provider(s) and are therefore less privacy friendly than Reunicorn.
+If you are just looking for sharing your current location with continuous updates for a certain duration, [Element X](https://element.io), [Glympse](https://app.glympse.com), [MyGrid](https://mygrid.app), and [Paralino](https://paralino.com) are aimed at that and at least offer end-to-end encryption.
+You can use Reunicorn to share your current location, but not with continuous live location updates.
+But in contrast to the alternatives above, Reunicorn does not leak meta-data to service provider(s) and is therefore more privacy friendly.
 
 ## Social Media {.title .is-3}
 

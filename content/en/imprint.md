@@ -49,6 +49,6 @@ Forsmannstr. 14 b
 22303 Hamburg
 
 **Members of the Board of Management:** Frank Landgraf, Frank Lanitz  
-**Chairman of the Supervisory Board:** Simon Liebing  
+**Chairman of the Supervisory Board:** Andreas Wolfermann  
 **E-Mail:** office@wtf-eg.de  
 **PGP-Key:** [CBBBF914ADDC76785A3F1638D1E47FA5FC0F6DFD](https://wtf-eg.de/gnupg/office.asc) 
